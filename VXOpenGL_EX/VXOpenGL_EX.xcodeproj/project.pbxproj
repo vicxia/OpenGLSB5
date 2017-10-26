@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C93C1DE1FA1A8EF001BF15C /* FlatShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C93C1DB1FA1A8EE001BF15C /* FlatShader.cpp */; };
+		1C93C1DF1FA1A915001BF15C /* FlatShader.fp in Resources */ = {isa = PBXBuildFile; fileRef = 1C93C1DC1FA1A8EE001BF15C /* FlatShader.fp */; };
+		1C93C1E01FA1A917001BF15C /* FlatShader.vp in Resources */ = {isa = PBXBuildFile; fileRef = 1C93C1DD1FA1A8EF001BF15C /* FlatShader.vp */; };
 		1C9B93101F9DC7440006C11A /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B92EF1F9DC2C70006C11A /* libGLTools.a */; };
 		1C9B93621F9E03210006C11A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B93611F9E03210006C11A /* GLUT.framework */; };
-		1C9B936B1F9E04CD0006C11A /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C9B936A1F9E04C60006C11A /* Triangle.cpp */; };
-		1C9B936C1F9E04D10006C11A /* Identity.fp in Resources */ = {isa = PBXBuildFile; fileRef = 1C9B93681F9E04C60006C11A /* Identity.fp */; };
-		1C9B936D1F9E04D50006C11A /* Identity.vp in Resources */ = {isa = PBXBuildFile; fileRef = 1C9B93691F9E04C60006C11A /* Identity.vp */; };
 		1C9B93711F9E0ADD0006C11A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B935F1F9E031D0006C11A /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,13 +33,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C93C1DB1FA1A8EE001BF15C /* FlatShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FlatShader.cpp; sourceTree = "<group>"; };
+		1C93C1DC1FA1A8EE001BF15C /* FlatShader.fp */ = {isa = PBXFileReference; lastKnownFileType = text; path = FlatShader.fp; sourceTree = "<group>"; };
+		1C93C1DD1FA1A8EF001BF15C /* FlatShader.vp */ = {isa = PBXFileReference; lastKnownFileType = text; path = FlatShader.vp; sourceTree = "<group>"; };
 		1C9B92D41F9DC2110006C11A /* VXOpenGL_EX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VXOpenGL_EX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9B92EA1F9DC2C60006C11A /* GLTools.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GLTools.xcodeproj; sourceTree = "<group>"; };
 		1C9B935F1F9E031D0006C11A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		1C9B93611F9E03210006C11A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
-		1C9B93681F9E04C60006C11A /* Identity.fp */ = {isa = PBXFileReference; lastKnownFileType = text; path = Identity.fp; sourceTree = "<group>"; };
-		1C9B93691F9E04C60006C11A /* Identity.vp */ = {isa = PBXFileReference; lastKnownFileType = text; path = Identity.vp; sourceTree = "<group>"; };
-		1C9B936A1F9E04C60006C11A /* Triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		1C9B936E1F9E05720006C11A /* VXOpenGL_EX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VXOpenGL_EX.entitlements; sourceTree = "<group>"; };
 		1C9B936F1F9E05720006C11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,9 +112,9 @@
 		1C9B92F61F9DC3620006C11A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				1C9B93681F9E04C60006C11A /* Identity.fp */,
-				1C9B93691F9E04C60006C11A /* Identity.vp */,
-				1C9B936A1F9E04C60006C11A /* Triangle.cpp */,
+				1C93C1DB1FA1A8EE001BF15C /* FlatShader.cpp */,
+				1C93C1DC1FA1A8EE001BF15C /* FlatShader.fp */,
+				1C93C1DD1FA1A8EF001BF15C /* FlatShader.vp */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -212,8 +212,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C9B936C1F9E04D10006C11A /* Identity.fp in Resources */,
-				1C9B936D1F9E04D50006C11A /* Identity.vp in Resources */,
+				1C93C1E01FA1A917001BF15C /* FlatShader.vp in Resources */,
+				1C93C1DF1FA1A915001BF15C /* FlatShader.fp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C9B936B1F9E04CD0006C11A /* Triangle.cpp in Sources */,
+				1C93C1DE1FA1A8EF001BF15C /* FlatShader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

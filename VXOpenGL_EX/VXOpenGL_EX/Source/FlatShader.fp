@@ -1,14 +1,17 @@
-// The Identity Shader
+// Flat Shader
 // Fragment Shader
 // Richard S. Wright Jr.
 // OpenGL SuperBible
 #version 410
 
+// Make geometry solid
+uniform vec4 vColorValue;
+
+// Output fragment color
 out vec4 vFragColor;
 
-uniform vec4 vColor;
 
 void main(void)
    { 
-   vFragColor = vColor;
+   vFragColor = vColorValue;
    }

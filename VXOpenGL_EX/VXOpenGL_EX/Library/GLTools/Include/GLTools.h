@@ -72,6 +72,7 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF S
 
 //////////////////////// TEMPORARY TEMPORARY TEMPORARY - On SnowLeopard this is suppored, but GLEW doens't hook up properly
 //////////////////////// Fixed probably in 10.6.3
+/* 去掉apple extention
 #ifdef __APPLE__
 #define glGenVertexArrays glGenVertexArraysAPPLE
 #define glDeleteVertexArrays  glDeleteVertexArraysAPPLE
@@ -80,6 +81,7 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF S
 #define glGenerateMipmap    glGenerateMipmapEXT
 #endif
 #endif
+ */
 
 
 // Universal includes

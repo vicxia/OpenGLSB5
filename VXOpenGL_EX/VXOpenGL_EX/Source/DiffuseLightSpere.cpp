@@ -38,7 +38,7 @@ void SetupRC()
     
     viewFrame.MoveForward(4.0f);
     gltMakeSphere(sphereBatch, 1.0f, 26, 13);
-    diffuseShader = gltLoadShaderPairWithAttributes("ADSLightVertex.glsl", "ADSLightFragment.glsl", 2, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_NORMAL, "vNormal");
+    diffuseShader = gltLoadShaderPairWithAttributes("ADSPhoneVertex.glsl", "ADSPhoneFragment.glsl", 2, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_NORMAL, "vNormal");
     locAmbientColor = glGetUniformLocation(diffuseShader, "ambientColor");
     locSpecularColor = glGetUniformLocation(diffuseShader, "specularColor");
     locDiffColor = glGetUniformLocation(diffuseShader, "diffuseColor");
@@ -50,7 +50,7 @@ void SetupRC()
 
 void ShutDownRC()
 {
-    
+    glDeleteProgram(diffuseShader);
 }
 
 void RenderScene(void)

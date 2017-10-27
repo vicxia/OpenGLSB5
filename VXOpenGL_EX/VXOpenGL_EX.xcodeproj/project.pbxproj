@@ -13,6 +13,8 @@
 		1CB8CB3D1FA2F0AD002034C0 /* DiffuseLightSpere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CB3A98C1FA2C59900ED49E9 /* DiffuseLightSpere.cpp */; };
 		1CB8CB3F1FA2F90C002034C0 /* ADSLightVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8CB3E1FA2F90C002034C0 /* ADSLightVertex.glsl */; };
 		1CB8CB411FA2F925002034C0 /* ADSLightFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8CB401FA2F925002034C0 /* ADSLightFragment.glsl */; };
+		1CB8CB431FA3067C002034C0 /* ADSPhoneVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8CB421FA3067B002034C0 /* ADSPhoneVertex.glsl */; };
+		1CB8CB451FA30694002034C0 /* ADSPhoneFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8CB441FA30694002034C0 /* ADSPhoneFragment.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		1CB3A98C1FA2C59900ED49E9 /* DiffuseLightSpere.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DiffuseLightSpere.cpp; sourceTree = "<group>"; };
 		1CB8CB3E1FA2F90C002034C0 /* ADSLightVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ADSLightVertex.glsl; sourceTree = "<group>"; };
 		1CB8CB401FA2F925002034C0 /* ADSLightFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ADSLightFragment.glsl; sourceTree = "<group>"; };
+		1CB8CB421FA3067B002034C0 /* ADSPhoneVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ADSPhoneVertex.glsl; sourceTree = "<group>"; };
+		1CB8CB441FA30694002034C0 /* ADSPhoneFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ADSPhoneFragment.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 				1CB3A98C1FA2C59900ED49E9 /* DiffuseLightSpere.cpp */,
 				1CB8CB3E1FA2F90C002034C0 /* ADSLightVertex.glsl */,
 				1CB8CB401FA2F925002034C0 /* ADSLightFragment.glsl */,
+				1CB8CB421FA3067B002034C0 /* ADSPhoneVertex.glsl */,
+				1CB8CB441FA30694002034C0 /* ADSPhoneFragment.glsl */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -212,8 +218,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CB8CB431FA3067C002034C0 /* ADSPhoneVertex.glsl in Resources */,
 				1CB8CB3F1FA2F90C002034C0 /* ADSLightVertex.glsl in Resources */,
 				1CB8CB411FA2F925002034C0 /* ADSLightFragment.glsl in Resources */,
+				1CB8CB451FA30694002034C0 /* ADSPhoneFragment.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

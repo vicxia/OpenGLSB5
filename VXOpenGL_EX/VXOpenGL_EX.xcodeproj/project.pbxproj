@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C93C1DF1FA1A915001BF15C /* FlatShader.fp in Resources */ = {isa = PBXBuildFile; fileRef = 1C93C1DC1FA1A8EE001BF15C /* FlatShader.fp */; };
-		1C93C1E01FA1A917001BF15C /* FlatShader.vp in Resources */ = {isa = PBXBuildFile; fileRef = 1C93C1DD1FA1A8EF001BF15C /* FlatShader.vp */; };
 		1C9B93101F9DC7440006C11A /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B92EF1F9DC2C70006C11A /* libGLTools.a */; };
 		1C9B93621F9E03210006C11A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B93611F9E03210006C11A /* GLUT.framework */; };
 		1C9B93711F9E0ADD0006C11A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B935F1F9E031D0006C11A /* OpenGL.framework */; };
-		1CB3A9891FA2C19C00ED49E9 /* DiffuseLightVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1CB3A9881FA2C19C00ED49E9 /* DiffuseLightVertex.glsl */; };
-		1CB3A98B1FA2C52D00ED49E9 /* DiffuseLightFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1CB3A98A1FA2C52D00ED49E9 /* DiffuseLightFragment.glsl */; };
 		1CB8CB3D1FA2F0AD002034C0 /* DiffuseLightSpere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CB3A98C1FA2C59900ED49E9 /* DiffuseLightSpere.cpp */; };
+		1CB8CB3F1FA2F90C002034C0 /* ADSLightVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8CB3E1FA2F90C002034C0 /* ADSLightVertex.glsl */; };
+		1CB8CB411FA2F925002034C0 /* ADSLightFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8CB401FA2F925002034C0 /* ADSLightFragment.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +33,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C93C1DB1FA1A8EE001BF15C /* FlatShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FlatShader.cpp; sourceTree = "<group>"; };
-		1C93C1DC1FA1A8EE001BF15C /* FlatShader.fp */ = {isa = PBXFileReference; lastKnownFileType = text; path = FlatShader.fp; sourceTree = "<group>"; };
-		1C93C1DD1FA1A8EF001BF15C /* FlatShader.vp */ = {isa = PBXFileReference; lastKnownFileType = text; path = FlatShader.vp; sourceTree = "<group>"; };
 		1C9B92D41F9DC2110006C11A /* VXOpenGL_EX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VXOpenGL_EX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9B92EA1F9DC2C60006C11A /* GLTools.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GLTools.xcodeproj; sourceTree = "<group>"; };
 		1C9B935F1F9E031D0006C11A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		1C9B93611F9E03210006C11A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		1C9B936E1F9E05720006C11A /* VXOpenGL_EX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VXOpenGL_EX.entitlements; sourceTree = "<group>"; };
 		1C9B936F1F9E05720006C11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CB3A9881FA2C19C00ED49E9 /* DiffuseLightVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DiffuseLightVertex.glsl; sourceTree = "<group>"; };
-		1CB3A98A1FA2C52D00ED49E9 /* DiffuseLightFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DiffuseLightFragment.glsl; sourceTree = "<group>"; };
 		1CB3A98C1FA2C59900ED49E9 /* DiffuseLightSpere.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DiffuseLightSpere.cpp; sourceTree = "<group>"; };
+		1CB8CB3E1FA2F90C002034C0 /* ADSLightVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ADSLightVertex.glsl; sourceTree = "<group>"; };
+		1CB8CB401FA2F925002034C0 /* ADSLightFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ADSLightFragment.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,12 +112,9 @@
 		1C9B92F61F9DC3620006C11A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				1C93C1DB1FA1A8EE001BF15C /* FlatShader.cpp */,
 				1CB3A98C1FA2C59900ED49E9 /* DiffuseLightSpere.cpp */,
-				1C93C1DC1FA1A8EE001BF15C /* FlatShader.fp */,
-				1C93C1DD1FA1A8EF001BF15C /* FlatShader.vp */,
-				1CB3A9881FA2C19C00ED49E9 /* DiffuseLightVertex.glsl */,
-				1CB3A98A1FA2C52D00ED49E9 /* DiffuseLightFragment.glsl */,
+				1CB8CB3E1FA2F90C002034C0 /* ADSLightVertex.glsl */,
+				1CB8CB401FA2F925002034C0 /* ADSLightFragment.glsl */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -220,10 +212,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C93C1E01FA1A917001BF15C /* FlatShader.vp in Resources */,
-				1CB3A9891FA2C19C00ED49E9 /* DiffuseLightVertex.glsl in Resources */,
-				1C93C1DF1FA1A915001BF15C /* FlatShader.fp in Resources */,
-				1CB3A98B1FA2C52D00ED49E9 /* DiffuseLightFragment.glsl in Resources */,
+				1CB8CB3F1FA2F90C002034C0 /* ADSLightVertex.glsl in Resources */,
+				1CB8CB411FA2F925002034C0 /* ADSLightFragment.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

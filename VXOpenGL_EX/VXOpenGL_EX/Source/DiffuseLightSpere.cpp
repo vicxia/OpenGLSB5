@@ -23,6 +23,8 @@ GLGeometryTransform transformPipeline;
 
 GLint diffuseShader;
 GLuint locDiffColor;
+GLuint locAmbientColor;
+GLuint locSpecularColor;
 GLuint locLightPos;
 GLuint locMVPMatrix;
 GLuint locMVMatrix;
@@ -36,7 +38,9 @@ void SetupRC()
     
     viewFrame.MoveForward(4.0f);
     gltMakeSphere(sphereBatch, 1.0f, 26, 13);
-    diffuseShader = gltLoadShaderPairWithAttributes("DiffuseLightVertex.glsl", "DiffuseLightFragment.glsl", 2, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_NORMAL, "vNormal");
+    diffuseShader = gltLoadShaderPairWithAttributes("ADSLightVertex.glsl", "ADSLightFragment.glsl", 2, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_NORMAL, "vNormal");
+    locAmbientColor = glGetUniformLocation(diffuseShader, "ambientColor");
+    locSpecularColor = glGetUniformLocation(diffuseShader, "specularColor");
     locDiffColor = glGetUniformLocation(diffuseShader, "diffuseColor");
     locLightPos = glGetUniformLocation(diffuseShader, "vLightPosition");
     locMVPMatrix = glGetUniformLocation(diffuseShader, "mvpMatrix");
@@ -56,9 +60,13 @@ void RenderScene(void)
     modeoViewMatrix.PushMatrix(viewFrame);
     modeoViewMatrix.Rotate(rotTimer.GetElapsedSeconds() * 20, 0.0f, 1.0f, 0.0f);
     GLfloat vEyeLight[] = { -100.0f, 100.0f, 100.0f};
-    GLfloat vDiffuseColor[] = {0.0f, 0.0f, 1.0f, 1.0f};
+    GLfloat vDiffuseColor[] = {0.0f, 0.0f, 0.8f, 1.0f};
+    GLfloat vSpecularColor[] = {0.0f, 0.0f, 1.0f, 1.0f};
+    GLfloat vAmbientColor[] = {0.0f, 0.0f, 0.1f, 0.3f};
     glUseProgram(diffuseShader);
     glUniform4fv(locDiffColor, 1, vDiffuseColor);
+    glUniform4fv(locSpecularColor, 1, vSpecularColor);
+    glUniform4fv(locAmbientColor, 1, vAmbientColor);
     glUniform3fv(locLightPos, 1, vEyeLight);
     glUniformMatrix4fv(locMVPMatrix, 1, GL_FALSE, transformPipeline.GetModelViewProjectionMatrix());
     glUniformMatrix4fv(locMVMatrix, 1, GL_FALSE, transformPipeline.GetModelViewMatrix());

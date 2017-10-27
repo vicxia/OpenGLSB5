@@ -16,12 +16,13 @@
 
 GLFrame viewFrame;
 GLFrustum viewFrustum;
-GLTriangleBatch sphereBatch;
+GLBatch triangleBatch;
 GLMatrixStack modeoViewMatrix;
 GLMatrixStack projectionMatrix;
 GLGeometryTransform transformPipeline;
 
-GLint diffuseShader;
+GLint triangleShader;
+GLuint textureID;
 GLuint locDiffColor;
 GLuint locAmbientColor;
 GLuint locSpecularColor;
@@ -30,59 +31,82 @@ GLuint locMVPMatrix;
 GLuint locMVMatrix;
 GLuint locNormalMatrix;
 
+bool LoadTexture(const char *szFileName, GLenum minFilter, GLenum magFilter, GLenum wrapMode)
+{
+    GLbyte *pBits;
+    int nWidth, nHeight, nComponents;
+    GLenum eFormat;
+    
+    pBits = gltReadTGABits(szFileName, &nWidth, &nHeight, &nComponents, &eFormat);
+    if (pBits == NULL) {
+        return false;
+    }
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrapMode);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapMode);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, magFilter);
+    
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+    glTexImage2D(GL_TEXTURE_2D, 0, nComponents, nWidth, nHeight, 0, eFormat, GL_UNSIGNED_BYTE, pBits);
+    free(pBits);
+    if (minFilter == GL_LINEAR_MIPMAP_LINEAR ||
+        minFilter == GL_LINEAR_MIPMAP_NEAREST ||
+        minFilter == GL_NEAREST_MIPMAP_LINEAR ||
+        minFilter == GL_NEAREST_MIPMAP_NEAREST) {
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    return true;
+}
+
 void SetupRC()
 {
     glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
+
+    GLfloat vVerts[] = {
+        -0.5f, 0.0f, 0.0f,
+         0.5f, 0.0f, 0.0f,
+         0.0f, 0.5f, 0.0f
+    };
     
-    viewFrame.MoveForward(4.0f);
-    gltMakeSphere(sphereBatch, 1.0f, 26, 13);
-    diffuseShader = gltLoadShaderPairWithAttributes("ADSPhoneVertex.glsl", "ADSPhoneFragment.glsl", 2, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_NORMAL, "vNormal");
-    locAmbientColor = glGetUniformLocation(diffuseShader, "ambientColor");
-    locSpecularColor = glGetUniformLocation(diffuseShader, "specularColor");
-    locDiffColor = glGetUniformLocation(diffuseShader, "diffuseColor");
-    locLightPos = glGetUniformLocation(diffuseShader, "vLightPosition");
-    locMVPMatrix = glGetUniformLocation(diffuseShader, "mvpMatrix");
-    locMVMatrix = glGetUniformLocation(diffuseShader, "mvMatrix");
-    locNormalMatrix = glGetUniformLocation(diffuseShader, "normalMatrix");
+    GLfloat vTexCoords[] = {
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        0.5f, 1.0f
+    };
+    triangleBatch.Begin(GL_TRIANGLES, 3, 1);
+    triangleBatch.CopyVertexData3f(vVerts);
+    triangleBatch.CopyTexCoordData2f(vTexCoords, 0);
+    triangleBatch.End();
+    
+    triangleShader = gltLoadShaderPairWithAttributes("TexturedIdentityVertex.glsl", "TexturedIdentityFragment.glsl", 2, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_TEXTURE0, "vTexCoords");
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+    LoadTexture("stone.tga", GL_LINEAR, GL_LINEAR, GL_CLAMP_TO_EDGE);
 }
 
 void ShutDownRC()
 {
-    glDeleteProgram(diffuseShader);
+    glDeleteProgram(triangleShader);
+    glDeleteTextures(1, &textureID);
 }
 
 void RenderScene(void)
 {
-    static CStopWatch rotTimer;
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    modeoViewMatrix.PushMatrix(viewFrame);
-    modeoViewMatrix.Rotate(rotTimer.GetElapsedSeconds() * 20, 0.0f, 1.0f, 0.0f);
-    GLfloat vEyeLight[] = { -100.0f, 100.0f, 100.0f};
-    GLfloat vDiffuseColor[] = {0.0f, 0.0f, 0.8f, 1.0f};
-    GLfloat vSpecularColor[] = {0.0f, 0.0f, 1.0f, 1.0f};
-    GLfloat vAmbientColor[] = {0.0f, 0.0f, 0.1f, 0.3f};
-    glUseProgram(diffuseShader);
-    glUniform4fv(locDiffColor, 1, vDiffuseColor);
-    glUniform4fv(locSpecularColor, 1, vSpecularColor);
-    glUniform4fv(locAmbientColor, 1, vAmbientColor);
-    glUniform3fv(locLightPos, 1, vEyeLight);
-    glUniformMatrix4fv(locMVPMatrix, 1, GL_FALSE, transformPipeline.GetModelViewProjectionMatrix());
-    glUniformMatrix4fv(locMVMatrix, 1, GL_FALSE, transformPipeline.GetModelViewMatrix());
-    glUniformMatrix3fv(locNormalMatrix, 1, GL_FALSE, transformPipeline.GetNormalMatrix());
-    sphereBatch.Draw();
-    modeoViewMatrix.PopMatrix();
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    glUseProgram(triangleShader);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+    GLint iTextureUniform = glGetUniformLocation(triangleShader, "colorMap");
+    glUniform1i(iTextureUniform, 0);
+    triangleBatch.Draw();
     glutSwapBuffers();
-    glutPostRedisplay();
 }
+
 
 void ChangeSize(int w, int h)
 {
     glViewport(0, 0, w, h);
-    viewFrustum.SetPerspective(35.0f, float(w) / float(h), 1.0f, 100.0f);
-    projectionMatrix.LoadMatrix(viewFrustum.GetProjectionMatrix());
-    transformPipeline.SetMatrixStacks(modeoViewMatrix, projectionMatrix);
 }
 
 int main(int argc, char * argv[])

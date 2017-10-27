@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C40039B1FA3506100A5243B /* TexturedIdentityVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1C40039A1FA3506100A5243B /* TexturedIdentityVertex.glsl */; };
+		1C40039D1FA3508400A5243B /* TexturedIdentityFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1C40039C1FA3508400A5243B /* TexturedIdentityFragment.glsl */; };
+		1C4003A31FA358D800A5243B /* stone.tga in Resources */ = {isa = PBXBuildFile; fileRef = 1C4003A21FA351FA00A5243B /* stone.tga */; };
 		1C9B93101F9DC7440006C11A /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B92EF1F9DC2C70006C11A /* libGLTools.a */; };
 		1C9B93621F9E03210006C11A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B93611F9E03210006C11A /* GLUT.framework */; };
 		1C9B93711F9E0ADD0006C11A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B935F1F9E031D0006C11A /* OpenGL.framework */; };
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C40039A1FA3506100A5243B /* TexturedIdentityVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TexturedIdentityVertex.glsl; sourceTree = "<group>"; };
+		1C40039C1FA3508400A5243B /* TexturedIdentityFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TexturedIdentityFragment.glsl; sourceTree = "<group>"; };
+		1C40039E1FA351F300A5243B /* TexturedTriangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TexturedTriangle.cpp; sourceTree = "<group>"; };
+		1C4003A01FA351FA00A5243B /* TexturedIdentity.fp */ = {isa = PBXFileReference; lastKnownFileType = text; path = TexturedIdentity.fp; sourceTree = "<group>"; };
+		1C4003A11FA351FA00A5243B /* TexturedIdentity.vp */ = {isa = PBXFileReference; lastKnownFileType = text; path = TexturedIdentity.vp; sourceTree = "<group>"; };
+		1C4003A21FA351FA00A5243B /* stone.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = stone.tga; sourceTree = "<group>"; };
 		1C9B92D41F9DC2110006C11A /* VXOpenGL_EX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VXOpenGL_EX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9B92EA1F9DC2C60006C11A /* GLTools.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GLTools.xcodeproj; sourceTree = "<group>"; };
 		1C9B935F1F9E031D0006C11A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -116,11 +125,17 @@
 		1C9B92F61F9DC3620006C11A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1C40039E1FA351F300A5243B /* TexturedTriangle.cpp */,
+				1C4003A21FA351FA00A5243B /* stone.tga */,
+				1C4003A01FA351FA00A5243B /* TexturedIdentity.fp */,
+				1C4003A11FA351FA00A5243B /* TexturedIdentity.vp */,
 				1CB3A98C1FA2C59900ED49E9 /* DiffuseLightSpere.cpp */,
 				1CB8CB3E1FA2F90C002034C0 /* ADSLightVertex.glsl */,
 				1CB8CB401FA2F925002034C0 /* ADSLightFragment.glsl */,
 				1CB8CB421FA3067B002034C0 /* ADSPhoneVertex.glsl */,
 				1CB8CB441FA30694002034C0 /* ADSPhoneFragment.glsl */,
+				1C40039A1FA3506100A5243B /* TexturedIdentityVertex.glsl */,
+				1C40039C1FA3508400A5243B /* TexturedIdentityFragment.glsl */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -218,10 +233,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C40039D1FA3508400A5243B /* TexturedIdentityFragment.glsl in Resources */,
 				1CB8CB431FA3067C002034C0 /* ADSPhoneVertex.glsl in Resources */,
 				1CB8CB3F1FA2F90C002034C0 /* ADSLightVertex.glsl in Resources */,
 				1CB8CB411FA2F925002034C0 /* ADSLightFragment.glsl in Resources */,
+				1C40039B1FA3506100A5243B /* TexturedIdentityVertex.glsl in Resources */,
 				1CB8CB451FA30694002034C0 /* ADSPhoneFragment.glsl in Resources */,
+				1C4003A31FA358D800A5243B /* stone.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

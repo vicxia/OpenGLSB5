@@ -14,6 +14,9 @@
 		AF3064DD1FA48AC70095E7FB /* TextureSpereVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF3064DC1FA48AC70095E7FB /* TextureSpereVertex.glsl */; };
 		AF3064DF1FA48AE50095E7FB /* TextureSpereFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF3064DE1FA48AE50095E7FB /* TextureSpereFragment.glsl */; };
 		AF3064E01FA4B5500095E7FB /* CoolTexture.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF3064D61FA4058F0095E7FB /* CoolTexture.tga */; };
+		AF3064E21FA4B8230095E7FB /* Clouds.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF3064E11FA4B81E0095E7FB /* Clouds.tga */; };
+		AF3064E61FA4B8BF0095E7FB /* DissolveVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF3064E51FA4B8BF0095E7FB /* DissolveVertex.glsl */; };
+		AF3064E81FA4B8DF0095E7FB /* DissolveFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF3064E71FA4B8DF0095E7FB /* DissolveFragment.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		AF3064DA1FA40C320095E7FB /* TextureSpere.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextureSpere.cpp; sourceTree = "<group>"; };
 		AF3064DC1FA48AC70095E7FB /* TextureSpereVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextureSpereVertex.glsl; sourceTree = "<group>"; };
 		AF3064DE1FA48AE50095E7FB /* TextureSpereFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextureSpereFragment.glsl; sourceTree = "<group>"; };
+		AF3064E11FA4B81E0095E7FB /* Clouds.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Clouds.tga; path = "../../../sb5code-master/Src/Chapter06/Dissolve/Clouds.tga"; sourceTree = "<group>"; };
+		AF3064E51FA4B8BF0095E7FB /* DissolveVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveVertex.glsl; sourceTree = "<group>"; };
+		AF3064E71FA4B8DF0095E7FB /* DissolveFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveFragment.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +120,10 @@
 		1C9B92F61F9DC3620006C11A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AF3064E51FA4B8BF0095E7FB /* DissolveVertex.glsl */,
+				AF3064E71FA4B8DF0095E7FB /* DissolveFragment.glsl */,
 				AF3064D61FA4058F0095E7FB /* CoolTexture.tga */,
+				AF3064E11FA4B81E0095E7FB /* Clouds.tga */,
 				AF3064DA1FA40C320095E7FB /* TextureSpere.cpp */,
 				AF3064DC1FA48AC70095E7FB /* TextureSpereVertex.glsl */,
 				AF3064DE1FA48AE50095E7FB /* TextureSpereFragment.glsl */,
@@ -215,8 +224,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF3064E21FA4B8230095E7FB /* Clouds.tga in Resources */,
 				AF3064DF1FA48AE50095E7FB /* TextureSpereFragment.glsl in Resources */,
 				AF3064DD1FA48AC70095E7FB /* TextureSpereVertex.glsl in Resources */,
+				AF3064E61FA4B8BF0095E7FB /* DissolveVertex.glsl in Resources */,
+				AF3064E81FA4B8DF0095E7FB /* DissolveFragment.glsl in Resources */,
 				AF3064E01FA4B5500095E7FB /* CoolTexture.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,6 +31,7 @@ GLint locMVPMatrix;
 GLint locMVMatrix;
 GLint locNormalMatrix;
 GLint locTexture;
+GLint locDissolve;
 
 bool LoadTGATextureJ(const char *szFileName, GLenum minFilter, GLenum magFilter, GLenum wrapMode)
 {
@@ -70,7 +71,7 @@ void SetupRC(void)
     viewFrame.MoveForward(4.0f);
     gltMakeSphere(spereBatch, 1.0f, 26, 13);
     
-    shader = gltLoadShaderPairWithAttributes("TextureSpereVertex.glsl", "TextureSpereFragment.glsl", 3, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_NORMAL, "vNormal", GLT_ATTRIBUTE_TEXTURE0, "vTexture0");
+    shader = gltLoadShaderPairWithAttributes("DissolveVertex.glsl", "DissolveFragment.glsl", 3, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_NORMAL, "vNormal", GLT_ATTRIBUTE_TEXTURE0, "vTexture0");
     locAmbient = glGetUniformLocation(shader, "ambientColor");
     locDiffuse = glGetUniformLocation(shader, "diffuseColor");
     locSpecular = glGetUniformLocation(shader, "specularColor");
@@ -79,9 +80,10 @@ void SetupRC(void)
     locMVMatrix = glGetUniformLocation(shader, "mvMatrix");
     locNormalMatrix = glGetUniformLocation(shader, "normalMatrix");
     locTexture = glGetUniformLocation(shader, "colorMap");
+    locDissolve = glGetUniformLocation(shader, "dissolveFactor");
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
-    LoadTGATextureJ("CoolTexture.tga", GL_LINEAR_MIPMAP_LINEAR, GL_LINE, GL_CLAMP_TO_EDGE);
+    LoadTGATextureJ("Clouds.tga", GL_LINEAR_MIPMAP_LINEAR, GL_LINE, GL_CLAMP_TO_EDGE);
 }
 
 void ShutdownRC(void)
@@ -119,6 +121,9 @@ void RenderScene(void)
     glUniformMatrix4fv(locMVMatrix, 1, GL_FALSE, transformPipeline.GetModelViewMatrix());
     glUniformMatrix3fv(locNormalMatrix, 1, GL_FALSE, transformPipeline.GetNormalMatrix());
     glUniform1i(locTexture, 0);
+    
+    float fFactor = fmod(rotTimer.GetElapsedSeconds(), 10.0f) / 10.0f;
+    glUniform1f(locDissolve, fFactor);
     spereBatch.Draw();
     modelViewMatrix.PopMatrix();
     

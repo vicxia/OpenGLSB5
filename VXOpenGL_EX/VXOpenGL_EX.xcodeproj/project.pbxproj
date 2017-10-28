@@ -7,17 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C40039B1FA3506100A5243B /* TexturedIdentityVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1C40039A1FA3506100A5243B /* TexturedIdentityVertex.glsl */; };
-		1C40039D1FA3508400A5243B /* TexturedIdentityFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1C40039C1FA3508400A5243B /* TexturedIdentityFragment.glsl */; };
-		1C4003A31FA358D800A5243B /* stone.tga in Resources */ = {isa = PBXBuildFile; fileRef = 1C4003A21FA351FA00A5243B /* stone.tga */; };
 		1C9B93101F9DC7440006C11A /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B92EF1F9DC2C70006C11A /* libGLTools.a */; };
 		1C9B93621F9E03210006C11A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B93611F9E03210006C11A /* GLUT.framework */; };
 		1C9B93711F9E0ADD0006C11A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B935F1F9E031D0006C11A /* OpenGL.framework */; };
-		1CB8CB3D1FA2F0AD002034C0 /* DiffuseLightSpere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CB3A98C1FA2C59900ED49E9 /* DiffuseLightSpere.cpp */; };
-		1CB8CB3F1FA2F90C002034C0 /* ADSLightVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8CB3E1FA2F90C002034C0 /* ADSLightVertex.glsl */; };
-		1CB8CB411FA2F925002034C0 /* ADSLightFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8CB401FA2F925002034C0 /* ADSLightFragment.glsl */; };
-		1CB8CB431FA3067C002034C0 /* ADSPhoneVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8CB421FA3067B002034C0 /* ADSPhoneVertex.glsl */; };
-		1CB8CB451FA30694002034C0 /* ADSPhoneFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8CB441FA30694002034C0 /* ADSPhoneFragment.glsl */; };
+		AF3064DB1FA40C320095E7FB /* TextureSpere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF3064DA1FA40C320095E7FB /* TextureSpere.cpp */; };
+		AF3064DD1FA48AC70095E7FB /* TextureSpereVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF3064DC1FA48AC70095E7FB /* TextureSpereVertex.glsl */; };
+		AF3064DF1FA48AE50095E7FB /* TextureSpereFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF3064DE1FA48AE50095E7FB /* TextureSpereFragment.glsl */; };
+		AF3064E01FA4B5500095E7FB /* CoolTexture.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF3064D61FA4058F0095E7FB /* CoolTexture.tga */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,23 +34,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C40039A1FA3506100A5243B /* TexturedIdentityVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TexturedIdentityVertex.glsl; sourceTree = "<group>"; };
-		1C40039C1FA3508400A5243B /* TexturedIdentityFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TexturedIdentityFragment.glsl; sourceTree = "<group>"; };
-		1C40039E1FA351F300A5243B /* TexturedTriangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TexturedTriangle.cpp; sourceTree = "<group>"; };
-		1C4003A01FA351FA00A5243B /* TexturedIdentity.fp */ = {isa = PBXFileReference; lastKnownFileType = text; path = TexturedIdentity.fp; sourceTree = "<group>"; };
-		1C4003A11FA351FA00A5243B /* TexturedIdentity.vp */ = {isa = PBXFileReference; lastKnownFileType = text; path = TexturedIdentity.vp; sourceTree = "<group>"; };
-		1C4003A21FA351FA00A5243B /* stone.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = stone.tga; sourceTree = "<group>"; };
 		1C9B92D41F9DC2110006C11A /* VXOpenGL_EX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VXOpenGL_EX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9B92EA1F9DC2C60006C11A /* GLTools.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GLTools.xcodeproj; sourceTree = "<group>"; };
 		1C9B935F1F9E031D0006C11A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		1C9B93611F9E03210006C11A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		1C9B936E1F9E05720006C11A /* VXOpenGL_EX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VXOpenGL_EX.entitlements; sourceTree = "<group>"; };
 		1C9B936F1F9E05720006C11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CB3A98C1FA2C59900ED49E9 /* DiffuseLightSpere.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DiffuseLightSpere.cpp; sourceTree = "<group>"; };
-		1CB8CB3E1FA2F90C002034C0 /* ADSLightVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ADSLightVertex.glsl; sourceTree = "<group>"; };
-		1CB8CB401FA2F925002034C0 /* ADSLightFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ADSLightFragment.glsl; sourceTree = "<group>"; };
-		1CB8CB421FA3067B002034C0 /* ADSPhoneVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ADSPhoneVertex.glsl; sourceTree = "<group>"; };
-		1CB8CB441FA30694002034C0 /* ADSPhoneFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ADSPhoneFragment.glsl; sourceTree = "<group>"; };
+		AF3064D61FA4058F0095E7FB /* CoolTexture.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = CoolTexture.tga; path = "../../../sb5code-master/Src/Chapter06/LitTexture/CoolTexture.tga"; sourceTree = "<group>"; };
+		AF3064DA1FA40C320095E7FB /* TextureSpere.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextureSpere.cpp; sourceTree = "<group>"; };
+		AF3064DC1FA48AC70095E7FB /* TextureSpereVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextureSpereVertex.glsl; sourceTree = "<group>"; };
+		AF3064DE1FA48AE50095E7FB /* TextureSpereFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextureSpereFragment.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,17 +114,10 @@
 		1C9B92F61F9DC3620006C11A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				1C40039E1FA351F300A5243B /* TexturedTriangle.cpp */,
-				1C4003A21FA351FA00A5243B /* stone.tga */,
-				1C4003A01FA351FA00A5243B /* TexturedIdentity.fp */,
-				1C4003A11FA351FA00A5243B /* TexturedIdentity.vp */,
-				1CB3A98C1FA2C59900ED49E9 /* DiffuseLightSpere.cpp */,
-				1CB8CB3E1FA2F90C002034C0 /* ADSLightVertex.glsl */,
-				1CB8CB401FA2F925002034C0 /* ADSLightFragment.glsl */,
-				1CB8CB421FA3067B002034C0 /* ADSPhoneVertex.glsl */,
-				1CB8CB441FA30694002034C0 /* ADSPhoneFragment.glsl */,
-				1C40039A1FA3506100A5243B /* TexturedIdentityVertex.glsl */,
-				1C40039C1FA3508400A5243B /* TexturedIdentityFragment.glsl */,
+				AF3064D61FA4058F0095E7FB /* CoolTexture.tga */,
+				AF3064DA1FA40C320095E7FB /* TextureSpere.cpp */,
+				AF3064DC1FA48AC70095E7FB /* TextureSpereVertex.glsl */,
+				AF3064DE1FA48AE50095E7FB /* TextureSpereFragment.glsl */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -233,13 +215,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C40039D1FA3508400A5243B /* TexturedIdentityFragment.glsl in Resources */,
-				1CB8CB431FA3067C002034C0 /* ADSPhoneVertex.glsl in Resources */,
-				1CB8CB3F1FA2F90C002034C0 /* ADSLightVertex.glsl in Resources */,
-				1CB8CB411FA2F925002034C0 /* ADSLightFragment.glsl in Resources */,
-				1C40039B1FA3506100A5243B /* TexturedIdentityVertex.glsl in Resources */,
-				1CB8CB451FA30694002034C0 /* ADSPhoneFragment.glsl in Resources */,
-				1C4003A31FA358D800A5243B /* stone.tga in Resources */,
+				AF3064DF1FA48AE50095E7FB /* TextureSpereFragment.glsl in Resources */,
+				AF3064DD1FA48AC70095E7FB /* TextureSpereVertex.glsl in Resources */,
+				AF3064E01FA4B5500095E7FB /* CoolTexture.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CB8CB3D1FA2F0AD002034C0 /* DiffuseLightSpere.cpp in Sources */,
+				AF3064DB1FA40C320095E7FB /* TextureSpere.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

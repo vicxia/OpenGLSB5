@@ -22,7 +22,8 @@ GLMatrixStack projectionMatrix;
 GLGeometryTransform transformPipeline;
 
 GLuint shader;
-GLuint texture;
+GLuint texture0;
+GLuint texture1;
 GLint locAmbient;
 GLint locDiffuse;
 GLint locSpecular;
@@ -30,7 +31,8 @@ GLint locLight;
 GLint locMVPMatrix;
 GLint locMVMatrix;
 GLint locNormalMatrix;
-GLint locTexture;
+GLint locTexture0;
+GLint locTexture1;
 GLint locDissolve;
 
 bool LoadTGATextureJ(const char *szFileName, GLenum minFilter, GLenum magFilter, GLenum wrapMode)
@@ -79,17 +81,22 @@ void SetupRC(void)
     locMVPMatrix = glGetUniformLocation(shader, "mvpMatrix");
     locMVMatrix = glGetUniformLocation(shader, "mvMatrix");
     locNormalMatrix = glGetUniformLocation(shader, "normalMatrix");
-    locTexture = glGetUniformLocation(shader, "colorMap");
+    locTexture0 = glGetUniformLocation(shader, "colorMap0");
+    locTexture1 = glGetUniformLocation(shader, "colorMap1");
     locDissolve = glGetUniformLocation(shader, "dissolveFactor");
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
+    glGenTextures(1, &texture0);
+    glBindTexture(GL_TEXTURE_2D, texture0);
+    LoadTGATextureJ("CoolTexture.tga", GL_LINEAR_MIPMAP_LINEAR, GL_LINE, GL_CLAMP_TO_EDGE);
+    glGenTextures(1, &texture1);
+    glBindTexture(GL_TEXTURE_2D, texture1);
     LoadTGATextureJ("Clouds.tga", GL_LINEAR_MIPMAP_LINEAR, GL_LINE, GL_CLAMP_TO_EDGE);
 }
 
 void ShutdownRC(void)
 {
     glDeleteShader(shader);
-    glDeleteTextures(1, &texture);
+    glDeleteTextures(1, &texture0);
+    glDeleteTextures(1, &texture1);
 }
 
 void ChangeSize(int w, int h)
@@ -111,7 +118,6 @@ void RenderScene(void)
     GLfloat vDiffuseColor[] = {1.0f, 1.0f, 1.0f, 1.0f};
     GLfloat vSpecularColor[] = {1.0f, 1.0f, 1.0f, 1.0f};
     
-    glBindTexture(GL_TEXTURE_2D, texture);
     glUseProgram(shader);
     glUniform4fv(locAmbient, 1, vAmbientColor);
     glUniform4fv(locDiffuse, 1, vDiffuseColor);
@@ -120,7 +126,10 @@ void RenderScene(void)
     glUniformMatrix4fv(locMVPMatrix, 1, GL_FALSE, transformPipeline.GetModelViewProjectionMatrix());
     glUniformMatrix4fv(locMVMatrix, 1, GL_FALSE, transformPipeline.GetModelViewMatrix());
     glUniformMatrix3fv(locNormalMatrix, 1, GL_FALSE, transformPipeline.GetNormalMatrix());
-    glUniform1i(locTexture, 0);
+    glBindTexture(GL_TEXTURE_2D, texture0);
+    glUniform1i(locTexture0, 0);
+    glBindTexture(GL_TEXTURE_2D, texture1);
+    glUniform1i(locTexture1, 0);
     
     float fFactor = fmod(rotTimer.GetElapsedSeconds(), 10.0f) / 10.0f;
     glUniform1f(locDissolve, fFactor);

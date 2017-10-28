@@ -5,7 +5,8 @@ out vec4 vFragColor;
 uniform vec4 ambientColor;
 uniform vec4 diffuseColor;
 uniform vec4 specularColor;
-uniform sampler2D colorMap;
+uniform sampler2D colorMap0;
+uniform sampler2D colorMap1;
 uniform float dissolveFactor;
 
 smooth in vec3 vVaryingNormal;
@@ -14,7 +15,7 @@ smooth in vec2 vVaryingTexCoords;
 
 void main(void)
 {
-    vec4 vCloudSample = texture(colorMap, vVaryingTexCoords);
+    vec4 vCloudSample = texture(colorMap1, vVaryingTexCoords);
     if (vCloudSample.r < dissolveFactor) {
         discard;
     }
@@ -22,6 +23,8 @@ void main(void)
     float diff = max(0.0, dot(normalize(vVaryingLightDir), normalize(vVaryingNormal)));
     vFragColor = diff * diffuseColor;
     vFragColor += ambientColor;
+    vec4 vTexColor = texture(colorMap0, vVaryingTexCoords);
+    vFragColor *= vTexColor;
     
     vec3 vReflection = normalize(reflect(-normalize(vVaryingLightDir),
                                          normalize(vVaryingNormal)));

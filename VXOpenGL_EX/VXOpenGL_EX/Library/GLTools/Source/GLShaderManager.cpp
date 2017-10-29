@@ -42,68 +42,77 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF S
 // This shader does no transformations at all, and uses the current
 // glColor value for fragments.
 // It will shade between verticies.
-static const char *szIdentityShaderVP = "attribute vec4 vVertex;"
-										"void main(void) "
-										"{ gl_Position = vVertex; "
-										"}";
+static const char *szIdentityShaderVP = "#version 410 \n "
+                                        "in vec4 vVertex; "
+                                        "void main(void) "
+                                        "{ "
+                                        "gl_Position = vVertex; "
+                                        "} ";
 									
-static const char *szIdentityShaderFP = 
+static const char *szIdentityShaderFP = "#version 410 \n "
 #ifdef OPENGL_ES
 										"precision mediump float;"
 #endif
-										"uniform vec4 vColor;"
-										"void main(void) "
-										"{ gl_FragColor = vColor;"
-										"}";
+                                        "uniform vec4 vColor;"
+                                        "out vec4 vFragColor;"
+                                        "void main(void)"
+                                        "{"
+                                        "    vFragColor = vColor;"
+                                        "}";
 									
 
 ///////////////////////////////////////////////////////////////////////////////
 // Flat Shader (GLT_SHADER_FLAT)
 // This shader applies the given model view matrix to the verticies, 
 // and uses a uniform color value.
-static const char *szFlatShaderVP =	"uniform mat4 mvpMatrix;"
-									"attribute vec4 vVertex;"
+static const char *szFlatShaderVP = "#version 410 \n "
+                                    "uniform mat4 mvpMatrix;"
+									"in vec4 vVertex;"
 									"void main(void) "
 									"{ gl_Position = mvpMatrix * vVertex; "
 									"}";
 									
-static const char *szFlatShaderFP = 
+static const char *szFlatShaderFP = "#version 410 \n "
 #ifdef OPENGL_ES
 									"precision mediump float;"
 #endif
 									"uniform vec4 vColor;"
+                                    "out vec4 vFragColor;"
 									"void main(void) "
-									"{ gl_FragColor = vColor; "
+									"{ vFragColor = vColor; "
 									"}";
 
 ///////////////////////////////////////////////////////////////////////////////
 // GLT_SHADER_SHADED
 // Point light, diffuse lighting only
-static const char *szShadedVP =		"uniform mat4 mvpMatrix;"
-									"attribute vec4 vColor;"
-									"attribute vec4 vVertex;"
-									"varying vec4 vFragColor;"
+static const char *szShadedVP =     "#version 410 \n "
+                                    "uniform mat4 mvpMatrix;"
+									"in vec4 vColor;"
+									"in vec4 vVertex;"
+									"out vec4 vVaryingColor;"
 									"void main(void) {"
-									"vFragColor = vColor; "
+									" vVaryingColor = vColor; "
 									" gl_Position = mvpMatrix * vVertex; "
 									"}";
 
-static const char *szShadedFP =     
+static const char *szShadedFP =     "#version 410 \n "
 #ifdef OPENGL_ES
 									"precision mediump float;"
 #endif
-									"varying vec4 vFragColor; "
+                                    "out vec4 vFragColor;"
+									"in vec4 vVaryingColor; "
 									"void main(void) { "
-									" gl_FragColor = vFragColor; "
+									" vFragColor = vVaryingColor; "
 									"}";
 									
 // GLT_SHADER_DEFAULT_LIGHT
 // Simple diffuse, directional, and vertex based light
-static const char *szDefaultLightVP = "uniform mat4 mvMatrix;"
+static const char *szDefaultLightVP = "#version 410 \n "
+                                      "uniform mat4 mvMatrix;"
 									  "uniform mat4 pMatrix;"
-									  "varying vec4 vFragColor;"
-									  "attribute vec4 vVertex;"
-									  "attribute vec3 vNormal;"
+									  "out vec4 vFragColor;"
+									  "in vec4 vVertex;"
+									  "in vec3 vNormal;"
 									  "uniform vec4 vColor;"
 									  "void main(void) { "
 									  " mat3 mNormalMatrix;"
@@ -121,24 +130,26 @@ static const char *szDefaultLightVP = "uniform mat4 mvMatrix;"
 									  "}";
 
 
-static const char *szDefaultLightFP =	
+static const char *szDefaultLightFP =	"#version 410 \n "
 #ifdef OPENGL_ES
 										"precision mediump float;"
 #endif
-										"varying vec4 vFragColor; "
+                                        "out vec4 vVaryingColor; "
+										"in vec4 vFragColor; "
 										"void main(void) { "
-										" gl_FragColor = vFragColor; "
+										" vVaryingColor = vVaryingColor; "
 										"}";
 
 //GLT_SHADER_POINT_LIGHT_DIFF
 // Point light, diffuse lighting only
-static const char *szPointLightDiffVP =	  "uniform mat4 mvMatrix;"
+static const char *szPointLightDiffVP =   "#version 410 \n "
+                                          "uniform mat4 mvMatrix;"
 										  "uniform mat4 pMatrix;"
 										  "uniform vec3 vLightPos;"
 										  "uniform vec4 vColor;"
-										  "attribute vec4 vVertex;"
-										  "attribute vec3 vNormal;"
-										  "varying vec4 vFragColor;"
+										  "in vec4 vVertex;"
+										  "in vec3 vNormal;"
+										  "out vec4 vFragColor;"
 										  "void main(void) { "
 										  " mat3 mNormalMatrix;"
 										  " mNormalMatrix[0] = normalize(mvMatrix[0].xyz);"
@@ -159,94 +170,107 @@ static const char *szPointLightDiffVP =	  "uniform mat4 mvMatrix;"
 										  "}";
 
 
-static const char *szPointLightDiffFP = 
+static const char *szPointLightDiffFP = "#version 410 \n "
 #ifdef OPENGL_ES
 										"precision mediump float;"
 #endif
-										"varying vec4 vFragColor; "
+                                        "out vec4 vVaryingColor; "
+										"in vec4 vFragColor; "
 										"void main(void) { "
-										" gl_FragColor = vFragColor; "
+										" vVaryingColor = vFragColor; "
 										"}";
 
 //GLT_SHADER_TEXTURE_REPLACE
 // Just put the texture on the polygons
-static const char *szTextureReplaceVP =	"uniform mat4 mvpMatrix;"
-										"attribute vec4 vVertex;"
-										"attribute vec2 vTexCoord0;"
-										"varying vec2 vTex;"
+static const char *szTextureReplaceVP = "#version 410 \n "
+                                        "uniform mat4 mvpMatrix;"
+										"in vec4 vVertex;"
+										"in vec2 vTexCoord0;"
+										"out vec2 vTex;"
 										"void main(void) "
 										"{ vTex = vTexCoord0;" 
 										" gl_Position = mvpMatrix * vVertex; "
 										"}";
 									
-static const char *szTextureReplaceFP = 
+static const char *szTextureReplaceFP = "#version 410 \n "
 #ifdef OPENGL_ES
 										"precision mediump float;"
 #endif
-										"varying vec2 vTex;"
+                                        "out vec4 vVaryingColor; "
+										"in vec2 vTex;"
 										"uniform sampler2D textureUnit0;"
 										"void main(void) "
-										"{ gl_FragColor = texture2D(textureUnit0, vTex); "
+										"{ vVaryingColor = texture(textureUnit0, vTex); "
 										"}";
 
 
 // Just put the texture on the polygons
-static const char *szTextureRectReplaceVP =	"uniform mat4 mvpMatrix;"
-                                        "attribute vec4 vVertex;"
-                                        "attribute vec2 vTexCoord0;"
-                                        "varying vec2 vTex;"
+static const char *szTextureRectReplaceVP =
+                                        "#version 410 \n "
+                                        "uniform mat4 mvpMatrix;"
+                                        "in vec4 vVertex;"
+                                        "in vec2 vTexCoord0;"
+                                        "out vec2 vTex;"
                                         "void main(void) "
                                         "{ vTex = vTexCoord0;" 
                                         " gl_Position = mvpMatrix * vVertex; "
                                         "}";
 
-static const char *szTextureRectReplaceFP = 
+static const char *szTextureRectReplaceFP =
+                                        "#version 410 \n "
 #ifdef OPENGL_ES
                                         "precision mediump float;"
 #endif
-                                        "varying vec2 vTex;"
+                                        "out vec4 vVaryingColor; "
+                                        "in vec2 vTex;"
                                         "uniform sampler2DRect textureUnit0;"
                                         "void main(void) "
-                                        "{ gl_FragColor = texture2DRect(textureUnit0, vTex); "
+                                        "{ vVaryingColor = texture(textureUnit0, vTex); "
                                         "}";
 
 
 
 //GLT_SHADER_TEXTURE_MODULATE
 // Just put the texture on the polygons, but multiply by the color (as a unifomr)
-static const char *szTextureModulateVP ="uniform mat4 mvpMatrix;"
-										"attribute vec4 vVertex;"
-										"attribute vec2 vTexCoord0;"
-										"varying vec2 vTex;"
+static const char *szTextureModulateVP =
+                                        "#version 410 \n "
+                                        "uniform mat4 mvpMatrix;"
+										"in vec4 vVertex;"
+										"in vec2 vTexCoord0;"
+										"out vec2 vTex;"
 										"void main(void) "
 										"{ vTex = vTexCoord0;" 
 										" gl_Position = mvpMatrix * vVertex; "
 										"}";
 									
 static const char *szTextureModulateFP =
+                                        "#version 410 \n "
 #ifdef OPENGL_ES
 										"precision mediump float;"
 #endif
-										"varying vec2 vTex;"
+                                        "out vec4 vVaryingColor; "
+										"in vec2 vTex;"
 										"uniform sampler2D textureUnit0;"
 										"uniform vec4 vColor;"
 										"void main(void) "
-										"{ gl_FragColor = vColor * texture2D(textureUnit0, vTex); "
+										"{ vVaryingColor = vColor * texture(textureUnit0, vTex); "
 										"}";
 
 
 
 //GLT_SHADER_TEXTURE_POINT_LIGHT_DIFF
 // Point light (Diffuse only), with texture (modulated)
-static const char *szTexturePointLightDiffVP =	  "uniform mat4 mvMatrix;"
+static const char *szTexturePointLightDiffVP =
+                                                  "#version 410 \n "
+                                                  "uniform mat4 mvMatrix;"
 												  "uniform mat4 pMatrix;"
 												  "uniform vec3 vLightPos;"
 												  "uniform vec4 vColor;"
-												  "attribute vec4 vVertex;"
-												  "attribute vec3 vNormal;"
-												  "varying vec4 vFragColor;"
-												  "attribute vec2 vTexCoord0;"
-												  "varying vec2 vTex;"
+												  "in vec4 vVertex;"
+												  "in vec3 vNormal;"
+												  "out vec4 vFragColor;"
+												  "in vec2 vTexCoord0;"
+												  "out vec2 vTex;"
 												  "void main(void) { "
 												  " mat3 mNormalMatrix;"
 												  " mNormalMatrix[0] = normalize(mvMatrix[0].xyz);"
@@ -268,15 +292,16 @@ static const char *szTexturePointLightDiffVP =	  "uniform mat4 mvMatrix;"
 												  "}";
 
 
-static const char *szTexturePointLightDiffFP =	
+static const char *szTexturePointLightDiffFP =	"#version 410 \n "
 #ifdef OPENGL_ES
 												"precision mediump float;"
 #endif
-												"varying vec4 vFragColor;"
-											    "varying vec2 vTex;"
+                                                "out vec4 vVaryingColor; "
+												"in vec4 vFragColor;"
+											    "in vec2 vTex;"
 												"uniform sampler2D textureUnit0;"
 												"void main(void) { "
-												" gl_FragColor = vFragColor * texture2D(textureUnit0, vTex);"
+												" vVaryingColor = vFragColor * texture(textureUnit0, vTex);"
 												"}";
 
 
@@ -321,7 +346,8 @@ bool GLShaderManager::InitializeStockShaders(void)
 	// hickup for a reallocation.
 //	shaderTable.reserve(128);
 	
-	uiStockShaders[GLT_SHADER_IDENTITY]			= gltLoadShaderPairSrcWithAttributes(szIdentityShaderVP, szIdentityShaderFP, 1, GLT_ATTRIBUTE_VERTEX, "vVertex");
+    uiStockShaders[GLT_SHADER_IDENTITY]            = gltLoadShaderPairSrcWithAttributes(szIdentityShaderVP, szIdentityShaderFP, 1, GLT_ATTRIBUTE_VERTEX, "vVertex");
+//        uiStockShaders[GLT_SHADER_IDENTITY]     = gltLoadShaderPairWithAttributes("szIdentityShaderVP.glsl", "szIdentityShaderFP.glsl", 1, GLT_ATTRIBUTE_VERTEX, "vVertex");
 	uiStockShaders[GLT_SHADER_FLAT]				= gltLoadShaderPairSrcWithAttributes(szFlatShaderVP, szFlatShaderFP, 1, GLT_ATTRIBUTE_VERTEX, "vVertex");
 	uiStockShaders[GLT_SHADER_SHADED]			= gltLoadShaderPairSrcWithAttributes(szShadedVP, szShadedFP, 2,
 																								GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_COLOR, "vColor");

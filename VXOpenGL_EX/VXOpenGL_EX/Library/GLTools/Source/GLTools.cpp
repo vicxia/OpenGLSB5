@@ -1620,19 +1620,25 @@ GLuint gltLoadShaderPairSrcWithAttributes(const char *szVertexSrc, const char *s
     // Check for errors
     glGetShaderiv(hVertexShader, GL_COMPILE_STATUS, &testVal);
     if(testVal == GL_FALSE)
-		{
+    {
+        char infoLog[1024];
+        glGetShaderInfoLog(hVertexShader, 1024, NULL, infoLog);
+        fprintf(stderr, "The vertex shader failed to compile with the following error:\n%s\n", infoLog);
         glDeleteShader(hVertexShader);
         glDeleteShader(hFragmentShader);
         return (GLuint)NULL;
-		}
+    }
     
     glGetShaderiv(hFragmentShader, GL_COMPILE_STATUS, &testVal);
     if(testVal == GL_FALSE)
-		{
+    {
+        char infoLog[1024];
+        glGetShaderInfoLog(hFragmentShader, 1024, NULL, infoLog);
+        fprintf(stderr, "The fragment shader failed to compile with the following error:\n%s\n", infoLog);
         glDeleteShader(hVertexShader);
         glDeleteShader(hFragmentShader);
         return (GLuint)NULL;
-		}
+    }
     
     // Link them - assuming it works...
     hReturn = glCreateProgram();
@@ -1663,10 +1669,13 @@ GLuint gltLoadShaderPairSrcWithAttributes(const char *szVertexSrc, const char *s
     // Make sure link worked too
     glGetProgramiv(hReturn, GL_LINK_STATUS, &testVal);
     if(testVal == GL_FALSE)
-		{
+    {
+        char infoLog[1024];
+        glGetShaderInfoLog(hVertexShader, 1024, NULL, infoLog);
+        fprintf(stderr, "The pragram shader failed to compile with the following error:\n%s\n", infoLog);
 		glDeleteProgram(hReturn);
 		return (GLuint)NULL;
-		}
+    }
     
     return hReturn;  
 	}   
@@ -1684,7 +1693,7 @@ bool gltCheckErrors(GLuint progName)
 		
 	if (error != GL_NO_ERROR)
 	{
-	    fprintf(stderr, "A GL Error has occured\n");
+	    fprintf(stderr, "A GL Error(%d) has occured\n", error);
         bFoundError = true;
 	}
 #ifndef OPENGL_ES

@@ -22,8 +22,7 @@ GLMatrixStack projectionMatrix;
 GLGeometryTransform transformPipeline;
 
 GLuint shader;
-GLuint texture0;
-GLuint texture1;
+GLuint texture;
 GLint locAmbient;
 GLint locDiffuse;
 GLint locSpecular;
@@ -31,9 +30,7 @@ GLint locLight;
 GLint locMVPMatrix;
 GLint locMVMatrix;
 GLint locNormalMatrix;
-GLint locTexture0;
-GLint locTexture1;
-GLint locDissolve;
+GLint locColorTable;
 
 bool LoadTGATextureJ(const char *szFileName, GLenum minFilter, GLenum magFilter, GLenum wrapMode)
 {
@@ -73,7 +70,7 @@ void SetupRC(void)
     viewFrame.MoveForward(4.0f);
     gltMakeSphere(spereBatch, 1.0f, 26, 13);
     
-    shader = gltLoadShaderPairWithAttributes("DissolveVertex.glsl", "DissolveFragment.glsl", 3, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_NORMAL, "vNormal", GLT_ATTRIBUTE_TEXTURE0, "vTexture0");
+    shader = gltLoadShaderPairWithAttributes("ToonVertex.glsl", "ToonFragment.glsl", 3, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_NORMAL, "vNormal", GLT_ATTRIBUTE_TEXTURE0, "vTexture0");
     locAmbient = glGetUniformLocation(shader, "ambientColor");
     locDiffuse = glGetUniformLocation(shader, "diffuseColor");
     locSpecular = glGetUniformLocation(shader, "specularColor");
@@ -81,22 +78,25 @@ void SetupRC(void)
     locMVPMatrix = glGetUniformLocation(shader, "mvpMatrix");
     locMVMatrix = glGetUniformLocation(shader, "mvMatrix");
     locNormalMatrix = glGetUniformLocation(shader, "normalMatrix");
-    locTexture0 = glGetUniformLocation(shader, "colorMap0");
-    locTexture1 = glGetUniformLocation(shader, "colorMap1");
-    locDissolve = glGetUniformLocation(shader, "dissolveFactor");
-    glGenTextures(1, &texture0);
-    glBindTexture(GL_TEXTURE_2D, texture0);
-    LoadTGATextureJ("CoolTexture.tga", GL_LINEAR_MIPMAP_LINEAR, GL_LINE, GL_CLAMP_TO_EDGE);
-    glGenTextures(1, &texture1);
-    glBindTexture(GL_TEXTURE_2D, texture1);
-    LoadTGATextureJ("Clouds.tga", GL_LINEAR_MIPMAP_LINEAR, GL_LINE, GL_CLAMP_TO_EDGE);
+    locColorTable = glGetUniformLocation(shader, "colorTable");
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_1D, texture);
+    GLubyte textureData[4][3] = {
+        32, 0, 0,
+        64, 0, 0,
+        128, 0, 0,
+        255, 0, 0,
+    };
+    glTexImage1D(GL_TEXTURE_1D, 0, GL_RGB, 4, 0, GL_RGB, GL_UNSIGNED_BYTE, textureData);
+    glTexParameteri(GL_TEXTURE_1D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_1D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_1D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 }
 
 void ShutdownRC(void)
 {
     glDeleteShader(shader);
-    glDeleteTextures(1, &texture0);
-    glDeleteTextures(1, &texture1);
+    glDeleteTextures(1, &texture);
 }
 
 void ChangeSize(int w, int h)
@@ -126,13 +126,9 @@ void RenderScene(void)
     glUniformMatrix4fv(locMVPMatrix, 1, GL_FALSE, transformPipeline.GetModelViewProjectionMatrix());
     glUniformMatrix4fv(locMVMatrix, 1, GL_FALSE, transformPipeline.GetModelViewMatrix());
     glUniformMatrix3fv(locNormalMatrix, 1, GL_FALSE, transformPipeline.GetNormalMatrix());
-    glBindTexture(GL_TEXTURE_2D, texture0);
-    glUniform1i(locTexture0, 0);
-    glBindTexture(GL_TEXTURE_2D, texture1);
-    glUniform1i(locTexture1, 0);
+    glBindTexture(GL_TEXTURE_1D, texture);
+    glUniform1i(locColorTable, 0);
     
-    float fFactor = fmod(rotTimer.GetElapsedSeconds(), 10.0f) / 10.0f;
-    glUniform1f(locDissolve, fFactor);
     spereBatch.Draw();
     modelViewMatrix.PopMatrix();
     

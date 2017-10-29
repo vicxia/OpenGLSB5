@@ -134,10 +134,11 @@ void ChangeSize(int w, int h)
 // Main entry point for GLUT based programs
 int main(int argc, char* argv[])
     {
+        glewExperimental = GL_TRUE;
 	gltSetWorkingDirectory(argv[0]);
 	
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_STENCIL);
+	glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_STENCIL);
 	glutInitWindowSize(800, 600);
 	glutCreateWindow("Cell (toon) shading");
     glutReshapeFunc(ChangeSize);

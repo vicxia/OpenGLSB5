@@ -10,13 +10,17 @@
 		1C9B93101F9DC7440006C11A /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B92EF1F9DC2C70006C11A /* libGLTools.a */; };
 		1C9B93621F9E03210006C11A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B93611F9E03210006C11A /* GLUT.framework */; };
 		1C9B93711F9E0ADD0006C11A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B935F1F9E031D0006C11A /* OpenGL.framework */; };
-		AF3064DB1FA40C320095E7FB /* TextureSpere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF3064DA1FA40C320095E7FB /* TextureSpere.cpp */; };
 		AF3064DD1FA48AC70095E7FB /* TextureSpereVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF3064DC1FA48AC70095E7FB /* TextureSpereVertex.glsl */; };
 		AF3064DF1FA48AE50095E7FB /* TextureSpereFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF3064DE1FA48AE50095E7FB /* TextureSpereFragment.glsl */; };
 		AF3064E01FA4B5500095E7FB /* CoolTexture.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF3064D61FA4058F0095E7FB /* CoolTexture.tga */; };
 		AF3064E21FA4B8230095E7FB /* Clouds.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF3064E11FA4B81E0095E7FB /* Clouds.tga */; };
 		AF3064E61FA4B8BF0095E7FB /* DissolveVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF3064E51FA4B8BF0095E7FB /* DissolveVertex.glsl */; };
 		AF3064E81FA4B8DF0095E7FB /* DissolveFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF3064E71FA4B8DF0095E7FB /* DissolveFragment.glsl */; };
+		AF3064EA1FA4C46D0095E7FB /* ToonVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF3064E91FA4C46D0095E7FB /* ToonVertex.glsl */; };
+		AF3064EC1FA4C4870095E7FB /* ToonFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF3064EB1FA4C4870095E7FB /* ToonFragment.glsl */; };
+		AF3064F01FA4CD640095E7FB /* ToonShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF3064EE1FA4CD640095E7FB /* ToonShader.cpp */; };
+		AF3064F11FA4CD6C0095E7FB /* ToonShader.fp in Resources */ = {isa = PBXBuildFile; fileRef = AF3064EF1FA4CD640095E7FB /* ToonShader.fp */; };
+		AF3064F21FA4CD6F0095E7FB /* ToonShader.vp in Resources */ = {isa = PBXBuildFile; fileRef = AF3064ED1FA4CD640095E7FB /* ToonShader.vp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,11 @@
 		AF3064E11FA4B81E0095E7FB /* Clouds.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Clouds.tga; path = "../../../sb5code-master/Src/Chapter06/Dissolve/Clouds.tga"; sourceTree = "<group>"; };
 		AF3064E51FA4B8BF0095E7FB /* DissolveVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveVertex.glsl; sourceTree = "<group>"; };
 		AF3064E71FA4B8DF0095E7FB /* DissolveFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveFragment.glsl; sourceTree = "<group>"; };
+		AF3064E91FA4C46D0095E7FB /* ToonVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToonVertex.glsl; sourceTree = "<group>"; };
+		AF3064EB1FA4C4870095E7FB /* ToonFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToonFragment.glsl; sourceTree = "<group>"; };
+		AF3064ED1FA4CD640095E7FB /* ToonShader.vp */ = {isa = PBXFileReference; lastKnownFileType = text; name = ToonShader.vp; path = "../../../sb5code-master/Src/Chapter06/ToonShader/ToonShader.vp"; sourceTree = "<group>"; };
+		AF3064EE1FA4CD640095E7FB /* ToonShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ToonShader.cpp; path = "../../../sb5code-master/Src/Chapter06/ToonShader/ToonShader.cpp"; sourceTree = "<group>"; };
+		AF3064EF1FA4CD640095E7FB /* ToonShader.fp */ = {isa = PBXFileReference; lastKnownFileType = text; name = ToonShader.fp; path = "../../../sb5code-master/Src/Chapter06/ToonShader/ToonShader.fp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +129,9 @@
 		1C9B92F61F9DC3620006C11A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AF3064EE1FA4CD640095E7FB /* ToonShader.cpp */,
+				AF3064EF1FA4CD640095E7FB /* ToonShader.fp */,
+				AF3064ED1FA4CD640095E7FB /* ToonShader.vp */,
 				AF3064E51FA4B8BF0095E7FB /* DissolveVertex.glsl */,
 				AF3064E71FA4B8DF0095E7FB /* DissolveFragment.glsl */,
 				AF3064D61FA4058F0095E7FB /* CoolTexture.tga */,
@@ -127,6 +139,8 @@
 				AF3064DA1FA40C320095E7FB /* TextureSpere.cpp */,
 				AF3064DC1FA48AC70095E7FB /* TextureSpereVertex.glsl */,
 				AF3064DE1FA48AE50095E7FB /* TextureSpereFragment.glsl */,
+				AF3064E91FA4C46D0095E7FB /* ToonVertex.glsl */,
+				AF3064EB1FA4C4870095E7FB /* ToonFragment.glsl */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -226,9 +240,13 @@
 			files = (
 				AF3064E21FA4B8230095E7FB /* Clouds.tga in Resources */,
 				AF3064DF1FA48AE50095E7FB /* TextureSpereFragment.glsl in Resources */,
+				AF3064F11FA4CD6C0095E7FB /* ToonShader.fp in Resources */,
+				AF3064F21FA4CD6F0095E7FB /* ToonShader.vp in Resources */,
 				AF3064DD1FA48AC70095E7FB /* TextureSpereVertex.glsl in Resources */,
 				AF3064E61FA4B8BF0095E7FB /* DissolveVertex.glsl in Resources */,
 				AF3064E81FA4B8DF0095E7FB /* DissolveFragment.glsl in Resources */,
+				AF3064EC1FA4C4870095E7FB /* ToonFragment.glsl in Resources */,
+				AF3064EA1FA4C46D0095E7FB /* ToonVertex.glsl in Resources */,
 				AF3064E01FA4B5500095E7FB /* CoolTexture.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,7 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF3064DB1FA40C320095E7FB /* TextureSpere.cpp in Sources */,
+				AF3064F01FA4CD640095E7FB /* ToonShader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

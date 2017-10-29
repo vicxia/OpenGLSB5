@@ -20,7 +20,12 @@
 		AF231D891FA5FF770083FF3E /* SkyBoxFS.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF231D881FA5FF770083FF3E /* SkyBoxFS.glsl */; };
 		AF231D8B1FA5FF990083FF3E /* ReflectionVS.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF231D8A1FA5FF990083FF3E /* ReflectionVS.glsl */; };
 		AF231D8D1FA5FFB30083FF3E /* ReflectionFS.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF231D8C1FA5FFB30083FF3E /* ReflectionFS.glsl */; };
-		AF231D8F1FA606120083FF3E /* SkyBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF231D841FA5E2BA0083FF3E /* SkyBox.cpp */; };
+		AF231D931FA616090083FF3E /* tarnish.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF231D921FA616070083FF3E /* tarnish.tga */; };
+		AF231D991FA616360083FF3E /* SkyBox.fp in Resources */ = {isa = PBXBuildFile; fileRef = AF231D951FA6162C0083FF3E /* SkyBox.fp */; };
+		AF231D9A1FA616380083FF3E /* Reflection.fp in Resources */ = {isa = PBXBuildFile; fileRef = AF231D971FA6162C0083FF3E /* Reflection.fp */; };
+		AF231D9B1FA6163A0083FF3E /* Reflection.vp in Resources */ = {isa = PBXBuildFile; fileRef = AF231D961FA6162C0083FF3E /* Reflection.vp */; };
+		AF231D9C1FA6163E0083FF3E /* SkyBox.vp in Resources */ = {isa = PBXBuildFile; fileRef = AF231D941FA6162C0083FF3E /* SkyBox.vp */; };
+		AF231D9D1FA616B40083FF3E /* SkyBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF231D841FA5E2BA0083FF3E /* SkyBox.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,12 @@
 		AF231D881FA5FF770083FF3E /* SkyBoxFS.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SkyBoxFS.glsl; sourceTree = "<group>"; };
 		AF231D8A1FA5FF990083FF3E /* ReflectionVS.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReflectionVS.glsl; sourceTree = "<group>"; };
 		AF231D8C1FA5FFB30083FF3E /* ReflectionFS.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReflectionFS.glsl; sourceTree = "<group>"; };
+		AF231D901FA6132B0083FF3E /* MultiTexture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MultiTexture.cpp; path = "../../../sb5code-master/Src/Chapter07/MultiTexture/MultiTexture.cpp"; sourceTree = "<group>"; };
+		AF231D921FA616070083FF3E /* tarnish.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = tarnish.tga; path = "../../../sb5code-master/Src/Chapter07/MultiTexture/tarnish.tga"; sourceTree = "<group>"; };
+		AF231D941FA6162C0083FF3E /* SkyBox.vp */ = {isa = PBXFileReference; lastKnownFileType = text; name = SkyBox.vp; path = "../../../sb5code-master/Src/Chapter07/MultiTexture/SkyBox.vp"; sourceTree = "<group>"; };
+		AF231D951FA6162C0083FF3E /* SkyBox.fp */ = {isa = PBXFileReference; lastKnownFileType = text; name = SkyBox.fp; path = "../../../sb5code-master/Src/Chapter07/MultiTexture/SkyBox.fp"; sourceTree = "<group>"; };
+		AF231D961FA6162C0083FF3E /* Reflection.vp */ = {isa = PBXFileReference; lastKnownFileType = text; name = Reflection.vp; path = "../../../sb5code-master/Src/Chapter07/MultiTexture/Reflection.vp"; sourceTree = "<group>"; };
+		AF231D971FA6162C0083FF3E /* Reflection.fp */ = {isa = PBXFileReference; lastKnownFileType = text; name = Reflection.fp; path = "../../../sb5code-master/Src/Chapter07/MultiTexture/Reflection.fp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +139,12 @@
 		1C9B92F61F9DC3620006C11A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AF231D971FA6162C0083FF3E /* Reflection.fp */,
+				AF231D961FA6162C0083FF3E /* Reflection.vp */,
+				AF231D951FA6162C0083FF3E /* SkyBox.fp */,
+				AF231D941FA6162C0083FF3E /* SkyBox.vp */,
+				AF231D921FA616070083FF3E /* tarnish.tga */,
+				AF231D901FA6132B0083FF3E /* MultiTexture.cpp */,
 				AF231D861FA5FF5F0083FF3E /* SkyBoxVS.glsl */,
 				AF231D881FA5FF770083FF3E /* SkyBoxFS.glsl */,
 				AF231D751FA5E2150083FF3E /* neg_x.tga */,
@@ -237,6 +254,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF231D871FA5FF5F0083FF3E /* SkyBoxVS.glsl in Resources */,
+				AF231D9B1FA6163A0083FF3E /* Reflection.vp in Resources */,
+				AF231D9A1FA616380083FF3E /* Reflection.fp in Resources */,
+				AF231D9C1FA6163E0083FF3E /* SkyBox.vp in Resources */,
+				AF231D991FA616360083FF3E /* SkyBox.fp in Resources */,
+				AF231D931FA616090083FF3E /* tarnish.tga in Resources */,
 				AF231D8B1FA5FF990083FF3E /* ReflectionVS.glsl in Resources */,
 				AF231D891FA5FF770083FF3E /* SkyBoxFS.glsl in Resources */,
 				AF231D7C1FA5E2230083FF3E /* pos_x.tga in Resources */,
@@ -256,7 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF231D8F1FA606120083FF3E /* SkyBox.cpp in Sources */,
+				AF231D9D1FA616B40083FF3E /* SkyBox.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

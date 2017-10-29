@@ -30,10 +30,12 @@ GLMatrixStack modelViewMatrix;
 GLMatrixStack projectionMatrix;
 GLGeometryTransform transformPipline;
 GLuint  cubeTexture;
+GLuint  tarnishTexture;
 GLint   reflectionShader;
 GLint   skyBoxShader;
 
-GLint locMVPReflect, locMVRelect, locNormalRelect, locInvertedCamera;
+GLint locMVPReflect, locMVReflect, locNormalReflect, locInvertedCamera;
+GLint locCubeMap, locTarnishMap;
 GLint locMVPSkyBox;
 
 const char *szCubeFaces[6] = { "pos_x.tga", "neg_x.tga", "pos_y.tga", "neg_y.tga", "pos_z.tga", "neg_z.tga" };
@@ -45,6 +47,82 @@ GLenum  cube[6] = {  GL_TEXTURE_CUBE_MAP_POSITIVE_X,
     GL_TEXTURE_CUBE_MAP_POSITIVE_Z,
     GL_TEXTURE_CUBE_MAP_NEGATIVE_Z };
 void SetupRC(void)
+/*
+{
+    GLbyte *pBytes;
+    GLint iWidth, iHeight, iComponents;
+    GLenum eFormat;
+    int i;
+    
+    // Cull backs of polygons
+    glCullFace(GL_BACK);
+    glFrontFace(GL_CCW);
+    glEnable(GL_DEPTH_TEST);
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+    
+    // Load the tarnish texture
+    glGenTextures(1, &tarnishTexture);
+    glBindTexture(GL_TEXTURE_2D, tarnishTexture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    
+    pBytes = gltReadTGABits("tarnish.tga", &iWidth, &iHeight, &iComponents, &eFormat);
+    glTexImage2D(GL_TEXTURE_2D, 0, iComponents, iWidth, iHeight, 0, eFormat, GL_UNSIGNED_BYTE, pBytes);
+    free(pBytes);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    
+    
+    // Load the cube map
+    glGenTextures(1, &cubeTexture);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, cubeTexture);
+    
+    // Set up texture maps
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+    
+    // Load Cube Map images
+    for(i = 0; i < 6; i++)
+    {
+        // Load this texture map
+        pBytes = gltReadTGABits(szCubeFaces[i], &iWidth, &iHeight, &iComponents, &eFormat);
+        glTexImage2D(cube[i], 0, iComponents, iWidth, iHeight, 0, eFormat, GL_UNSIGNED_BYTE, pBytes);
+        free(pBytes);
+    }
+    glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
+    
+    viewFrame.MoveForward(-4.0f);
+    gltMakeSphere(sphereBatch, 1.0f, 52, 26);
+    gltMakeCube(cubeBatch, 20.0f);
+    
+    reflectionShader = gltLoadShaderPairWithAttributes("Reflection.vp", "Reflection.fp", 3,
+                                                       GLT_ATTRIBUTE_VERTEX, "vVertex",
+                                                       GLT_ATTRIBUTE_NORMAL, "vNormal",
+                                                       GLT_ATTRIBUTE_TEXTURE0, "vTexCoords");
+    
+    locMVPReflect = glGetUniformLocation(reflectionShader, "mvpMatrix");
+    locMVReflect = glGetUniformLocation(reflectionShader, "mvMatrix");
+    locNormalReflect = glGetUniformLocation(reflectionShader, "normalMatrix");
+    locInvertedCamera = glGetUniformLocation(reflectionShader, "mInverseCamera");
+    locCubeMap = glGetUniformLocation(reflectionShader, "cubeMap");
+    locTarnishMap = glGetUniformLocation(reflectionShader, "tarnishMap");
+    
+    skyBoxShader = gltLoadShaderPairWithAttributes("SkyBox.vp", "SkyBox.fp", 2,
+                                                   GLT_ATTRIBUTE_VERTEX, "vVertex",
+                                                   GLT_ATTRIBUTE_NORMAL, "vNormal");
+    
+    locMVPSkyBox = glGetUniformLocation(skyBoxShader, "mvpMatrix");
+    
+    // Set textures to their texture units
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, tarnishTexture);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, cubeTexture);
+} */
 {
     GLbyte *pBytes;
     GLint iWidth, iHeight, iComponents;
@@ -54,7 +132,21 @@ void SetupRC(void)
     glCullFace(GL_BACK);
     glFrontFace(GL_CCW);
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+//    glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+    
+    glGenTextures(1, &tarnishTexture);
+    glBindTexture(GL_TEXTURE_2D, tarnishTexture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    
+    pBytes = gltReadTGABits("tarnish.tga", &iWidth, &iHeight, &iComponents, &eFormat);
+    glTexImage2D(GL_TEXTURE_2D, 0, iComponents, iWidth, iHeight, 0, eFormat, GL_UNSIGNED_BYTE, pBytes);
+    free(pBytes);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    
     
     glGenTextures(1, &cubeTexture);
     glBindTexture(GL_TEXTURE_CUBE_MAP, cubeTexture);
@@ -63,7 +155,6 @@ void SetupRC(void)
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     for (i = 0; i < 6; i++) {
         pBytes = gltReadTGABits(szCubeFaces[i], &iWidth, &iHeight, &iComponents, &eFormat);
         glTexImage2D(cube[i], 0, iComponents, iWidth, iHeight, 0, eFormat, GL_UNSIGNED_BYTE, pBytes);
@@ -74,15 +165,23 @@ void SetupRC(void)
     gltMakeSphere(sphereBatch, 1.0f, 52, 26);
     gltMakeCube(cubeBatch, 20);
     
-    reflectionShader = gltLoadShaderPairWithAttributes("ReflectionVS.glsl", "ReflectionFS.glsl", 2, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_NORMAL, "vNormal");
+    reflectionShader = gltLoadShaderPairWithAttributes("Reflection.vp", "Reflection.fp", 3, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_NORMAL, "vNormal", GLT_ATTRIBUTE_TEXTURE0, "vTexCoords");
     
     locMVPReflect = glGetUniformLocation(reflectionShader, "mvpMatrix");
-    locMVRelect = glGetUniformLocation(reflectionShader, "mvMatrix");
-    locNormalRelect = glGetUniformLocation(reflectionShader, "normalMatrix");
+    locMVReflect = glGetUniformLocation(reflectionShader, "mvMatrix");
+    locNormalReflect = glGetUniformLocation(reflectionShader, "normalMatrix");
     locInvertedCamera = glGetUniformLocation(reflectionShader, "mInverseCamera");
+    locCubeMap = glGetUniformLocation(reflectionShader, "cubeMap");
+    locTarnishMap = glGetUniformLocation(reflectionShader, "tarnishMap");
     
-    skyBoxShader = gltLoadShaderPairWithAttributes("SkyBoxVS.glsl", "SkyBoxFS.glsl", 1, GLT_ATTRIBUTE_VERTEX, "vVertex");
+    skyBoxShader = gltLoadShaderPairWithAttributes("SkyBox.vp", "SkyBox.fp", 1, GLT_ATTRIBUTE_VERTEX, "vVertex");
     locMVPSkyBox = glGetUniformLocation(skyBoxShader, "mvpMatrix");
+    
+    
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, tarnishTexture);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, cubeTexture);
 }
 
 void ShutdownRC(void)
@@ -106,9 +205,11 @@ void RenderScene(void)
     modelViewMatrix.MultMatrix(mCamera);
     glUseProgram(reflectionShader);
     glUniformMatrix4fv(locMVPReflect, 1, GL_FALSE, transformPipline.GetModelViewProjectionMatrix());
-    glUniformMatrix4fv(locMVRelect, 1, GL_FALSE, transformPipline.GetModelViewMatrix());
-    glUniformMatrix3fv(locNormalRelect, 1, GL_FALSE, transformPipline.GetNormalMatrix());
+    glUniformMatrix4fv(locMVReflect, 1, GL_FALSE, transformPipline.GetModelViewMatrix());
+    glUniformMatrix3fv(locNormalReflect, 1, GL_FALSE, transformPipline.GetNormalMatrix());
     glUniformMatrix4fv(locInvertedCamera, 1, GL_FALSE, mInverseCamera);
+    glUniform1i(locCubeMap, 0);
+    glUniform1i(locTarnishMap, 1);
     glEnable(GL_CULL_FACE);
     sphereBatch.Draw();
     glDisable(GL_CULL_FACE);

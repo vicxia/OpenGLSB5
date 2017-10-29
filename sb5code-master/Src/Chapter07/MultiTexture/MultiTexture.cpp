@@ -218,8 +218,9 @@ void ChangeSize(int w, int h)
 
 int main(int argc, char* argv[])
     {
+        glewExperimental = GL_TRUE;
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+    glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(800,600);
     glutCreateWindow("OpenGL MultiTexture");
     glutReshapeFunc(ChangeSize);

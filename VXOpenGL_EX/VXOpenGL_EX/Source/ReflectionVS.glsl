@@ -2,6 +2,7 @@
 
 in vec4 vVertex;
 in vec3 vNormal;
+in vec2 vTexCoords;
 
 uniform mat4 mvpMatrix;
 uniform mat4 mvMatrix;
@@ -9,6 +10,7 @@ uniform mat3 normalMatrix;
 uniform mat4 mInverseCamera;
 
 smooth out vec3 vVaryingTexCoord;
+smooth out vec2 vTarnishCoords;
 
 void main(void)
 {
@@ -21,5 +23,6 @@ void main(void)
     vCoords = mInverseCamera * vCoords;
     
     vVaryingTexCoord.xyz = normalize(vCoords.xyz);
+    vTarnishCoords = vTexCoords.st;
     gl_Position = mvpMatrix * vVertex;
 }

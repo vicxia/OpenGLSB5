@@ -7,25 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1A082D1FA6EA9900CF6226 /* Sprites.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C1A082C1FA6EA9900CF6226 /* Sprites.cpp */; };
+		1C4945321FA6EDC1002A6506 /* SpritesVS.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1C4945311FA6EDC1002A6506 /* SpritesVS.glsl */; };
+		1C4945341FA6EDD1002A6506 /* SpritesFS.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1C4945331FA6EDD1002A6506 /* SpritesFS.glsl */; };
+		1C563EB81FA6BE1C00704F9C /* star.tga in Resources */ = {isa = PBXBuildFile; fileRef = 1C563EB31FA6BE0A00704F9C /* star.tga */; };
 		1C9B93101F9DC7440006C11A /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B92EF1F9DC2C70006C11A /* libGLTools.a */; };
 		1C9B93621F9E03210006C11A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B93611F9E03210006C11A /* GLUT.framework */; };
 		1C9B93711F9E0ADD0006C11A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B935F1F9E031D0006C11A /* OpenGL.framework */; };
-		AF231D791FA5E21B0083FF3E /* neg_x.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF231D751FA5E2150083FF3E /* neg_x.tga */; };
-		AF231D7A1FA5E21D0083FF3E /* neg_y.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF231D701FA5E2150083FF3E /* neg_y.tga */; };
-		AF231D7B1FA5E21F0083FF3E /* neg_z.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF231D711FA5E2150083FF3E /* neg_z.tga */; };
-		AF231D7C1FA5E2230083FF3E /* pos_x.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF231D781FA5E2150083FF3E /* pos_x.tga */; };
-		AF231D7D1FA5E2270083FF3E /* pos_y.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF231D6E1FA5E2150083FF3E /* pos_y.tga */; };
-		AF231D7E1FA5E2290083FF3E /* pos_z.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF231D761FA5E2150083FF3E /* pos_z.tga */; };
-		AF231D871FA5FF5F0083FF3E /* SkyBoxVS.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF231D861FA5FF5F0083FF3E /* SkyBoxVS.glsl */; };
-		AF231D891FA5FF770083FF3E /* SkyBoxFS.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF231D881FA5FF770083FF3E /* SkyBoxFS.glsl */; };
-		AF231D8B1FA5FF990083FF3E /* ReflectionVS.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF231D8A1FA5FF990083FF3E /* ReflectionVS.glsl */; };
-		AF231D8D1FA5FFB30083FF3E /* ReflectionFS.glsl in Resources */ = {isa = PBXBuildFile; fileRef = AF231D8C1FA5FFB30083FF3E /* ReflectionFS.glsl */; };
-		AF231D931FA616090083FF3E /* tarnish.tga in Resources */ = {isa = PBXBuildFile; fileRef = AF231D921FA616070083FF3E /* tarnish.tga */; };
-		AF231D991FA616360083FF3E /* SkyBox.fp in Resources */ = {isa = PBXBuildFile; fileRef = AF231D951FA6162C0083FF3E /* SkyBox.fp */; };
-		AF231D9A1FA616380083FF3E /* Reflection.fp in Resources */ = {isa = PBXBuildFile; fileRef = AF231D971FA6162C0083FF3E /* Reflection.fp */; };
-		AF231D9B1FA6163A0083FF3E /* Reflection.vp in Resources */ = {isa = PBXBuildFile; fileRef = AF231D961FA6162C0083FF3E /* Reflection.vp */; };
-		AF231D9C1FA6163E0083FF3E /* SkyBox.vp in Resources */ = {isa = PBXBuildFile; fileRef = AF231D941FA6162C0083FF3E /* SkyBox.vp */; };
-		AF231D9D1FA616B40083FF3E /* SkyBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF231D841FA5E2BA0083FF3E /* SkyBox.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,29 +34,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C1A082C1FA6EA9900CF6226 /* Sprites.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprites.cpp; sourceTree = "<group>"; };
+		1C4945311FA6EDC1002A6506 /* SpritesVS.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpritesVS.glsl; sourceTree = "<group>"; };
+		1C4945331FA6EDD1002A6506 /* SpritesFS.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpritesFS.glsl; sourceTree = "<group>"; };
+		1C563EB31FA6BE0A00704F9C /* star.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = star.tga; sourceTree = "<group>"; };
 		1C9B92D41F9DC2110006C11A /* VXOpenGL_EX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VXOpenGL_EX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9B92EA1F9DC2C60006C11A /* GLTools.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GLTools.xcodeproj; sourceTree = "<group>"; };
 		1C9B935F1F9E031D0006C11A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		1C9B93611F9E03210006C11A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		1C9B936E1F9E05720006C11A /* VXOpenGL_EX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VXOpenGL_EX.entitlements; sourceTree = "<group>"; };
 		1C9B936F1F9E05720006C11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AF231D6E1FA5E2150083FF3E /* pos_y.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = pos_y.tga; path = "../../../sb5code-master/Src/Chapter07/CubeMapped/pos_y.tga"; sourceTree = "<group>"; };
-		AF231D701FA5E2150083FF3E /* neg_y.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = neg_y.tga; path = "../../../sb5code-master/Src/Chapter07/CubeMapped/neg_y.tga"; sourceTree = "<group>"; };
-		AF231D711FA5E2150083FF3E /* neg_z.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = neg_z.tga; path = "../../../sb5code-master/Src/Chapter07/CubeMapped/neg_z.tga"; sourceTree = "<group>"; };
-		AF231D751FA5E2150083FF3E /* neg_x.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = neg_x.tga; path = "../../../sb5code-master/Src/Chapter07/CubeMapped/neg_x.tga"; sourceTree = "<group>"; };
-		AF231D761FA5E2150083FF3E /* pos_z.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = pos_z.tga; path = "../../../sb5code-master/Src/Chapter07/CubeMapped/pos_z.tga"; sourceTree = "<group>"; };
-		AF231D781FA5E2150083FF3E /* pos_x.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = pos_x.tga; path = "../../../sb5code-master/Src/Chapter07/CubeMapped/pos_x.tga"; sourceTree = "<group>"; };
-		AF231D841FA5E2BA0083FF3E /* SkyBox.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SkyBox.cpp; sourceTree = "<group>"; };
-		AF231D861FA5FF5F0083FF3E /* SkyBoxVS.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SkyBoxVS.glsl; sourceTree = "<group>"; };
-		AF231D881FA5FF770083FF3E /* SkyBoxFS.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SkyBoxFS.glsl; sourceTree = "<group>"; };
-		AF231D8A1FA5FF990083FF3E /* ReflectionVS.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReflectionVS.glsl; sourceTree = "<group>"; };
-		AF231D8C1FA5FFB30083FF3E /* ReflectionFS.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReflectionFS.glsl; sourceTree = "<group>"; };
-		AF231D901FA6132B0083FF3E /* MultiTexture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MultiTexture.cpp; path = "../../../sb5code-master/Src/Chapter07/MultiTexture/MultiTexture.cpp"; sourceTree = "<group>"; };
-		AF231D921FA616070083FF3E /* tarnish.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = tarnish.tga; path = "../../../sb5code-master/Src/Chapter07/MultiTexture/tarnish.tga"; sourceTree = "<group>"; };
-		AF231D941FA6162C0083FF3E /* SkyBox.vp */ = {isa = PBXFileReference; lastKnownFileType = text; name = SkyBox.vp; path = "../../../sb5code-master/Src/Chapter07/MultiTexture/SkyBox.vp"; sourceTree = "<group>"; };
-		AF231D951FA6162C0083FF3E /* SkyBox.fp */ = {isa = PBXFileReference; lastKnownFileType = text; name = SkyBox.fp; path = "../../../sb5code-master/Src/Chapter07/MultiTexture/SkyBox.fp"; sourceTree = "<group>"; };
-		AF231D961FA6162C0083FF3E /* Reflection.vp */ = {isa = PBXFileReference; lastKnownFileType = text; name = Reflection.vp; path = "../../../sb5code-master/Src/Chapter07/MultiTexture/Reflection.vp"; sourceTree = "<group>"; };
-		AF231D971FA6162C0083FF3E /* Reflection.fp */ = {isa = PBXFileReference; lastKnownFileType = text; name = Reflection.fp; path = "../../../sb5code-master/Src/Chapter07/MultiTexture/Reflection.fp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,23 +114,10 @@
 		1C9B92F61F9DC3620006C11A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				AF231D971FA6162C0083FF3E /* Reflection.fp */,
-				AF231D961FA6162C0083FF3E /* Reflection.vp */,
-				AF231D951FA6162C0083FF3E /* SkyBox.fp */,
-				AF231D941FA6162C0083FF3E /* SkyBox.vp */,
-				AF231D921FA616070083FF3E /* tarnish.tga */,
-				AF231D901FA6132B0083FF3E /* MultiTexture.cpp */,
-				AF231D861FA5FF5F0083FF3E /* SkyBoxVS.glsl */,
-				AF231D881FA5FF770083FF3E /* SkyBoxFS.glsl */,
-				AF231D751FA5E2150083FF3E /* neg_x.tga */,
-				AF231D701FA5E2150083FF3E /* neg_y.tga */,
-				AF231D711FA5E2150083FF3E /* neg_z.tga */,
-				AF231D781FA5E2150083FF3E /* pos_x.tga */,
-				AF231D6E1FA5E2150083FF3E /* pos_y.tga */,
-				AF231D761FA5E2150083FF3E /* pos_z.tga */,
-				AF231D841FA5E2BA0083FF3E /* SkyBox.cpp */,
-				AF231D8A1FA5FF990083FF3E /* ReflectionVS.glsl */,
-				AF231D8C1FA5FFB30083FF3E /* ReflectionFS.glsl */,
+				1C563EB31FA6BE0A00704F9C /* star.tga */,
+				1C1A082C1FA6EA9900CF6226 /* Sprites.cpp */,
+				1C4945311FA6EDC1002A6506 /* SpritesVS.glsl */,
+				1C4945331FA6EDD1002A6506 /* SpritesFS.glsl */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -253,21 +215,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF231D871FA5FF5F0083FF3E /* SkyBoxVS.glsl in Resources */,
-				AF231D9B1FA6163A0083FF3E /* Reflection.vp in Resources */,
-				AF231D9A1FA616380083FF3E /* Reflection.fp in Resources */,
-				AF231D9C1FA6163E0083FF3E /* SkyBox.vp in Resources */,
-				AF231D991FA616360083FF3E /* SkyBox.fp in Resources */,
-				AF231D931FA616090083FF3E /* tarnish.tga in Resources */,
-				AF231D8B1FA5FF990083FF3E /* ReflectionVS.glsl in Resources */,
-				AF231D891FA5FF770083FF3E /* SkyBoxFS.glsl in Resources */,
-				AF231D7C1FA5E2230083FF3E /* pos_x.tga in Resources */,
-				AF231D7D1FA5E2270083FF3E /* pos_y.tga in Resources */,
-				AF231D7E1FA5E2290083FF3E /* pos_z.tga in Resources */,
-				AF231D791FA5E21B0083FF3E /* neg_x.tga in Resources */,
-				AF231D7A1FA5E21D0083FF3E /* neg_y.tga in Resources */,
-				AF231D8D1FA5FFB30083FF3E /* ReflectionFS.glsl in Resources */,
-				AF231D7B1FA5E21F0083FF3E /* neg_z.tga in Resources */,
+				1C4945341FA6EDD1002A6506 /* SpritesFS.glsl in Resources */,
+				1C4945321FA6EDC1002A6506 /* SpritesVS.glsl in Resources */,
+				1C563EB81FA6BE1C00704F9C /* star.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF231D9D1FA616B40083FF3E /* SkyBox.cpp in Sources */,
+				1C1A082D1FA6EA9900CF6226 /* Sprites.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

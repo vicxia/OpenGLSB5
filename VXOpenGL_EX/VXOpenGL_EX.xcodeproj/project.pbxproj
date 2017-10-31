@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C1A082D1FA6EA9900CF6226 /* Sprites.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C1A082C1FA6EA9900CF6226 /* Sprites.cpp */; };
-		1C4945321FA6EDC1002A6506 /* SpritesVS.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1C4945311FA6EDC1002A6506 /* SpritesVS.glsl */; };
-		1C4945341FA6EDD1002A6506 /* SpritesFS.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1C4945331FA6EDD1002A6506 /* SpritesFS.glsl */; };
-		1C563EB81FA6BE1C00704F9C /* star.tga in Resources */ = {isa = PBXBuildFile; fileRef = 1C563EB31FA6BE0A00704F9C /* star.tga */; };
 		1C9B93101F9DC7440006C11A /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B92EF1F9DC2C70006C11A /* libGLTools.a */; };
 		1C9B93621F9E03210006C11A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B93611F9E03210006C11A /* GLUT.framework */; };
 		1C9B93711F9E0ADD0006C11A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B935F1F9E031D0006C11A /* OpenGL.framework */; };
+		1CB961C91FA83B5100492DAB /* pix_buffs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CB961C81FA83B5100492DAB /* pix_buffs.cpp */; };
+		1CB961D01FA83BE400492DAB /* blur.fs in Resources */ = {isa = PBXBuildFile; fileRef = 1CB961CE1FA83BE400492DAB /* blur.fs */; };
+		1CB961D11FA83BE400492DAB /* blur.vs in Resources */ = {isa = PBXBuildFile; fileRef = 1CB961CF1FA83BE400492DAB /* blur.vs */; };
+		1CB961D31FA83CD600492DAB /* PixelBuffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CB961D21FA83CD600492DAB /* PixelBuffers.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,16 +34,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C1A082C1FA6EA9900CF6226 /* Sprites.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprites.cpp; sourceTree = "<group>"; };
-		1C4945311FA6EDC1002A6506 /* SpritesVS.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpritesVS.glsl; sourceTree = "<group>"; };
-		1C4945331FA6EDD1002A6506 /* SpritesFS.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpritesFS.glsl; sourceTree = "<group>"; };
-		1C563EB31FA6BE0A00704F9C /* star.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = star.tga; sourceTree = "<group>"; };
 		1C9B92D41F9DC2110006C11A /* VXOpenGL_EX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VXOpenGL_EX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9B92EA1F9DC2C60006C11A /* GLTools.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GLTools.xcodeproj; sourceTree = "<group>"; };
 		1C9B935F1F9E031D0006C11A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		1C9B93611F9E03210006C11A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		1C9B936E1F9E05720006C11A /* VXOpenGL_EX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VXOpenGL_EX.entitlements; sourceTree = "<group>"; };
 		1C9B936F1F9E05720006C11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CB961C81FA83B5100492DAB /* pix_buffs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pix_buffs.cpp; sourceTree = "<group>"; };
+		1CB961CA1FA83B5600492DAB /* fbo_textures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fbo_textures.cpp; sourceTree = "<group>"; };
+		1CB961CC1FA83B5C00492DAB /* fbo_drawbuffers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fbo_drawbuffers.cpp; sourceTree = "<group>"; };
+		1CB961CE1FA83BE400492DAB /* blur.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = blur.fs; sourceTree = "<group>"; };
+		1CB961CF1FA83BE400492DAB /* blur.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = blur.vs; sourceTree = "<group>"; };
+		1CB961D21FA83CD600492DAB /* PixelBuffers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PixelBuffers.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +116,12 @@
 		1C9B92F61F9DC3620006C11A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				1C563EB31FA6BE0A00704F9C /* star.tga */,
-				1C1A082C1FA6EA9900CF6226 /* Sprites.cpp */,
-				1C4945311FA6EDC1002A6506 /* SpritesVS.glsl */,
-				1C4945331FA6EDD1002A6506 /* SpritesFS.glsl */,
+				1CB961C81FA83B5100492DAB /* pix_buffs.cpp */,
+				1CB961CA1FA83B5600492DAB /* fbo_textures.cpp */,
+				1CB961CC1FA83B5C00492DAB /* fbo_drawbuffers.cpp */,
+				1CB961CE1FA83BE400492DAB /* blur.fs */,
+				1CB961CF1FA83BE400492DAB /* blur.vs */,
+				1CB961D21FA83CD600492DAB /* PixelBuffers.cpp */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -215,9 +219,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C4945341FA6EDD1002A6506 /* SpritesFS.glsl in Resources */,
-				1C4945321FA6EDC1002A6506 /* SpritesVS.glsl in Resources */,
-				1C563EB81FA6BE1C00704F9C /* star.tga in Resources */,
+				1CB961D01FA83BE400492DAB /* blur.fs in Resources */,
+				1CB961D11FA83BE400492DAB /* blur.vs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +231,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C1A082D1FA6EA9900CF6226 /* Sprites.cpp in Sources */,
+				1CB961D31FA83CD600492DAB /* PixelBuffers.cpp in Sources */,
+				1CB961C91FA83B5100492DAB /* pix_buffs.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

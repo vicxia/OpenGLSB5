@@ -442,7 +442,7 @@ int main(int argc, char* argv[])
     bAnimated = true;
     fboName = 0;
     depthBufferName = 0;
-
+    
 	gltSetWorkingDirectory(argv[0]);
 		
     glutInit(&argc, argv);

@@ -254,16 +254,19 @@ void SetupRC()
 	fileData = LoadFloatData("LumLinear.data", &count);
 	if (count > 0)
 	{
-		glBindBuffer(GL_TEXTURE_BUFFER_ARB, texBO[2]);
-		glBufferData(GL_TEXTURE_BUFFER_ARB, sizeof(float)*count, fileData, GL_STATIC_DRAW);
-		delete fileData;
+        glBindBuffer(GL_TEXTURE_BUFFER_ARB, texBO[2]);
+        glBufferData(GL_TEXTURE_BUFFER_ARB, sizeof(float)*count, fileData, GL_STATIC_DRAW);
+        delete fileData;
 	}
 
 	// Load the Tan ramp first
 	glBindBuffer(GL_TEXTURE_BUFFER_ARB, 0);
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_BUFFER_ARB, texBOTexture);
-	glTexBufferARB(GL_TEXTURE_BUFFER_ARB, GL_R32F, texBO[0]); 
+
+//    glTexBufferARB(GL_TEXTURE_BUFFER_ARB, GL_R32F, texBO[0]);
+    glTexBuffer(GL_TEXTURE_BUFFER_ARB, GL_R32F, texBO[0]);
+
 	glActiveTexture(GL_TEXTURE0);
 
 	// Reset framebuffer binding
@@ -315,21 +318,22 @@ void SpecialKeys(int key, int x, int y)
 	{
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_BUFFER_ARB, texBOTexture);
-		glTexBufferARB(GL_TEXTURE_BUFFER_ARB, GL_R32F, texBO[0]); // FIX THIS IN GLEE
+//        glTexBufferARB(GL_TEXTURE_BUFFER_ARB, GL_R32F, texBO[0]); // FIX THIS IN GLEE
+        glTexBuffer(GL_TEXTURE_BUFFER_ARB, GL_R32F, texBO[0]); // FIX THIS IN GLEE
 		glActiveTexture(GL_TEXTURE0);
 	}
 	else if(key == GLUT_KEY_F4)
 	{
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_BUFFER_ARB, texBOTexture);
-		glTexBufferARB(GL_TEXTURE_BUFFER_ARB, GL_R32F, texBO[1]); // FIX THIS IN GLEE
+		glTexBuffer(GL_TEXTURE_BUFFER_ARB, GL_R32F, texBO[1]); // FIX THIS IN GLEE
 		glActiveTexture(GL_TEXTURE0);
 	}
 	else if(key == GLUT_KEY_F5)
 	{
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_BUFFER_ARB, texBOTexture);
-		glTexBufferARB(GL_TEXTURE_BUFFER_ARB, GL_R32F, texBO[2]); // FIX THIS IN GLEE
+		glTexBuffer(GL_TEXTURE_BUFFER_ARB, GL_R32F, texBO[2]); // FIX THIS IN GLEE
 		glActiveTexture(GL_TEXTURE0);
 	}
                         
@@ -572,17 +576,17 @@ void RenderScene(void)
 int main(int argc, char* argv[])
 {
     screenWidth = 800;
-    screenHeight = 600;
+    screenHeight = 600et
     bFullScreen = false; 
     bAnimated = true;
     bUseFBO = true;
     fboName = 0;
     depthBufferName = 0;
-
+    glewExperimental = GL_TRUE;
 	gltSetWorkingDirectory(argv[0]);
 		
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+    glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(screenWidth,screenHeight);
   
     glutCreateWindow("FBO Drawbuffers");

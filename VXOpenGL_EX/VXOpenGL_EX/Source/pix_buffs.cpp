@@ -167,7 +167,7 @@ void SetupRC(void)
 	
 	glGenTextures(1, textures);
 	glBindTexture(GL_TEXTURE_2D, textures[0]);
-	LoadBMPTexture("marble.bmp", GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_REPEAT);
+	LoadBMPTexture("Marble.bmp", GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR, GL_REPEAT);
 
 	// Create blur program
 	blurProg =  gltLoadShaderPairWithAttributes("blur.vs", "blur.fs", 2,

@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0D49361FB41A14006F84E1 /* Marble.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D49351FB41A14006F84E1 /* Marble.bmp */; };
+		1C0D493B1FB43321006F84E1 /* ninja.sbm in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D49371FB43320006F84E1 /* ninja.sbm */; };
+		1C0D493D1FB43321006F84E1 /* NinjaComp.BMP in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D493A1FB43320006F84E1 /* NinjaComp.BMP */; };
+		1C0D49401FB43352006F84E1 /* multibuffer.fs in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D493E1FB43352006F84E1 /* multibuffer.fs */; };
+		1C0D49411FB43352006F84E1 /* multibuffer.vs in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D493F1FB43352006F84E1 /* multibuffer.vs */; };
+		1C0D49461FB433B7006F84E1 /* LumSin.data in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D49431FB433B6006F84E1 /* LumSin.data */; };
+		1C0D49471FB433B7006F84E1 /* LumLinear.data in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D49441FB433B6006F84E1 /* LumLinear.data */; };
+		1C0D49481FB433B7006F84E1 /* LumTan.data in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D49451FB433B6006F84E1 /* LumTan.data */; };
+		1C0D494B1FB433C4006F84E1 /* Marslike.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D49491FB433C4006F84E1 /* Marslike.bmp */; };
+		1C0D494C1FB433C4006F84E1 /* Marble.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D494A1FB433C4006F84E1 /* Marble.bmp */; };
+		1C0D494E1FB433D1006F84E1 /* MoonLike.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D494D1FB433D1006F84E1 /* MoonLike.bmp */; };
+		1C0D49501FB433D8006F84E1 /* multibuffer_frag_location.fs in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D494F1FB433D8006F84E1 /* multibuffer_frag_location.fs */; };
+		1C0D49531FB433F6006F84E1 /* sbm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C0D49511FB433F6006F84E1 /* sbm.cpp */; };
+		1C9578C71FB5857B008E46F1 /* FBOBuffers.vs in Resources */ = {isa = PBXBuildFile; fileRef = 1C9578C61FB5857B008E46F1 /* FBOBuffers.vs */; };
+		1C9578C91FB58C49008E46F1 /* FBOBuffers.fs in Resources */ = {isa = PBXBuildFile; fileRef = 1C9578C81FB58C49008E46F1 /* FBOBuffers.fs */; };
+		1C9578CB1FB59239008E46F1 /* FBOBuffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C0D49541FB4690D006F84E1 /* FBOBuffers.cpp */; };
 		1C9B93101F9DC7440006C11A /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B92EF1F9DC2C70006C11A /* libGLTools.a */; };
 		1C9B93621F9E03210006C11A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B93611F9E03210006C11A /* GLUT.framework */; };
 		1C9B93711F9E0ADD0006C11A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B935F1F9E031D0006C11A /* OpenGL.framework */; };
-		1CB961C91FA83B5100492DAB /* pix_buffs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CB961C81FA83B5100492DAB /* pix_buffs.cpp */; };
 		1CB961D01FA83BE400492DAB /* blur.fs in Resources */ = {isa = PBXBuildFile; fileRef = 1CB961CE1FA83BE400492DAB /* blur.fs */; };
 		1CB961D11FA83BE400492DAB /* blur.vs in Resources */ = {isa = PBXBuildFile; fileRef = 1CB961CF1FA83BE400492DAB /* blur.vs */; };
-		1CB961D31FA83CD600492DAB /* PixelBuffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CB961D21FA83CD600492DAB /* PixelBuffers.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +48,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C0D49351FB41A14006F84E1 /* Marble.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = Marble.bmp; sourceTree = "<group>"; };
+		1C0D49371FB43320006F84E1 /* ninja.sbm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ninja.sbm; sourceTree = "<group>"; };
+		1C0D493A1FB43320006F84E1 /* NinjaComp.BMP */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = NinjaComp.BMP; sourceTree = "<group>"; };
+		1C0D493E1FB43352006F84E1 /* multibuffer.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = multibuffer.fs; sourceTree = "<group>"; };
+		1C0D493F1FB43352006F84E1 /* multibuffer.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = multibuffer.vs; sourceTree = "<group>"; };
+		1C0D49431FB433B6006F84E1 /* LumSin.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LumSin.data; sourceTree = "<group>"; };
+		1C0D49441FB433B6006F84E1 /* LumLinear.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LumLinear.data; sourceTree = "<group>"; };
+		1C0D49451FB433B6006F84E1 /* LumTan.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LumTan.data; sourceTree = "<group>"; };
+		1C0D49491FB433C4006F84E1 /* Marslike.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = Marslike.bmp; sourceTree = "<group>"; };
+		1C0D494A1FB433C4006F84E1 /* Marble.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = Marble.bmp; path = "../../../../../learn/LearnOpenGL/OpenGL_Blue/sb5code-master/Linux/Chapter08/fbo_drawbuffers/Marble.bmp"; sourceTree = "<group>"; };
+		1C0D494D1FB433D1006F84E1 /* MoonLike.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = MoonLike.bmp; sourceTree = "<group>"; };
+		1C0D494F1FB433D8006F84E1 /* multibuffer_frag_location.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = multibuffer_frag_location.fs; sourceTree = "<group>"; };
+		1C0D49511FB433F6006F84E1 /* sbm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sbm.cpp; path = "../../../../../learn/LearnOpenGL/OpenGL_Blue/sb5code-master/Src/Models/Ninja/sbm.cpp"; sourceTree = "<group>"; };
+		1C0D49521FB433F6006F84E1 /* sbm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sbm.h; path = "../../../../../learn/LearnOpenGL/OpenGL_Blue/sb5code-master/Src/Models/Ninja/sbm.h"; sourceTree = "<group>"; };
+		1C0D49541FB4690D006F84E1 /* FBOBuffers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FBOBuffers.cpp; sourceTree = "<group>"; };
+		1C9578C61FB5857B008E46F1 /* FBOBuffers.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = FBOBuffers.vs; sourceTree = "<group>"; };
+		1C9578C81FB58C49008E46F1 /* FBOBuffers.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = FBOBuffers.fs; sourceTree = "<group>"; };
 		1C9B92D41F9DC2110006C11A /* VXOpenGL_EX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VXOpenGL_EX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9B92EA1F9DC2C60006C11A /* GLTools.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GLTools.xcodeproj; sourceTree = "<group>"; };
 		1C9B935F1F9E031D0006C11A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -116,10 +147,27 @@
 		1C9B92F61F9DC3620006C11A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1C0D49441FB433B6006F84E1 /* LumLinear.data */,
+				1C0D49431FB433B6006F84E1 /* LumSin.data */,
+				1C0D49451FB433B6006F84E1 /* LumTan.data */,
+				1C0D493E1FB43352006F84E1 /* multibuffer.fs */,
+				1C0D493F1FB43352006F84E1 /* multibuffer.vs */,
+				1C9578C61FB5857B008E46F1 /* FBOBuffers.vs */,
+				1C9578C81FB58C49008E46F1 /* FBOBuffers.fs */,
+				1C0D49351FB41A14006F84E1 /* Marble.bmp */,
 				1CB961C81FA83B5100492DAB /* pix_buffs.cpp */,
 				1CB961CA1FA83B5600492DAB /* fbo_textures.cpp */,
 				1CB961CC1FA83B5C00492DAB /* fbo_drawbuffers.cpp */,
+				1C0D49541FB4690D006F84E1 /* FBOBuffers.cpp */,
+				1C0D494A1FB433C4006F84E1 /* Marble.bmp */,
+				1C0D494D1FB433D1006F84E1 /* MoonLike.bmp */,
+				1C0D49491FB433C4006F84E1 /* Marslike.bmp */,
+				1C0D49511FB433F6006F84E1 /* sbm.cpp */,
+				1C0D49521FB433F6006F84E1 /* sbm.h */,
+				1C0D494F1FB433D8006F84E1 /* multibuffer_frag_location.fs */,
 				1CB961CE1FA83BE400492DAB /* blur.fs */,
+				1C0D49371FB43320006F84E1 /* ninja.sbm */,
+				1C0D493A1FB43320006F84E1 /* NinjaComp.BMP */,
 				1CB961CF1FA83BE400492DAB /* blur.vs */,
 				1CB961D21FA83CD600492DAB /* PixelBuffers.cpp */,
 			);
@@ -219,8 +267,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C0D49401FB43352006F84E1 /* multibuffer.fs in Resources */,
 				1CB961D01FA83BE400492DAB /* blur.fs in Resources */,
+				1C0D494C1FB433C4006F84E1 /* Marble.bmp in Resources */,
+				1C9578C71FB5857B008E46F1 /* FBOBuffers.vs in Resources */,
+				1C9578C91FB58C49008E46F1 /* FBOBuffers.fs in Resources */,
+				1C0D49481FB433B7006F84E1 /* LumTan.data in Resources */,
+				1C0D493B1FB43321006F84E1 /* ninja.sbm in Resources */,
+				1C0D494B1FB433C4006F84E1 /* Marslike.bmp in Resources */,
+				1C0D49461FB433B7006F84E1 /* LumSin.data in Resources */,
+				1C0D493D1FB43321006F84E1 /* NinjaComp.BMP in Resources */,
+				1C0D49411FB43352006F84E1 /* multibuffer.vs in Resources */,
+				1C0D49501FB433D8006F84E1 /* multibuffer_frag_location.fs in Resources */,
 				1CB961D11FA83BE400492DAB /* blur.vs in Resources */,
+				1C0D494E1FB433D1006F84E1 /* MoonLike.bmp in Resources */,
+				1C0D49361FB41A14006F84E1 /* Marble.bmp in Resources */,
+				1C0D49471FB433B7006F84E1 /* LumLinear.data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,8 +293,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CB961D31FA83CD600492DAB /* PixelBuffers.cpp in Sources */,
-				1CB961C91FA83B5100492DAB /* pix_buffs.cpp in Sources */,
+				1C0D49531FB433F6006F84E1 /* sbm.cpp in Sources */,
+				1C9578CB1FB59239008E46F1 /* FBOBuffers.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

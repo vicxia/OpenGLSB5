@@ -19,15 +19,15 @@
 		1C0D494C1FB433C4006F84E1 /* Marble.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D494A1FB433C4006F84E1 /* Marble.bmp */; };
 		1C0D494E1FB433D1006F84E1 /* MoonLike.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D494D1FB433D1006F84E1 /* MoonLike.bmp */; };
 		1C0D49501FB433D8006F84E1 /* multibuffer_frag_location.fs in Resources */ = {isa = PBXBuildFile; fileRef = 1C0D494F1FB433D8006F84E1 /* multibuffer_frag_location.fs */; };
-		1C0D49531FB433F6006F84E1 /* sbm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C0D49511FB433F6006F84E1 /* sbm.cpp */; };
 		1C9578C71FB5857B008E46F1 /* FBOBuffers.vs in Resources */ = {isa = PBXBuildFile; fileRef = 1C9578C61FB5857B008E46F1 /* FBOBuffers.vs */; };
 		1C9578C91FB58C49008E46F1 /* FBOBuffers.fs in Resources */ = {isa = PBXBuildFile; fileRef = 1C9578C81FB58C49008E46F1 /* FBOBuffers.fs */; };
-		1C9578CB1FB59239008E46F1 /* FBOBuffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C0D49541FB4690D006F84E1 /* FBOBuffers.cpp */; };
 		1C9B93101F9DC7440006C11A /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B92EF1F9DC2C70006C11A /* libGLTools.a */; };
 		1C9B93621F9E03210006C11A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B93611F9E03210006C11A /* GLUT.framework */; };
 		1C9B93711F9E0ADD0006C11A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9B935F1F9E031D0006C11A /* OpenGL.framework */; };
 		1CB961D01FA83BE400492DAB /* blur.fs in Resources */ = {isa = PBXBuildFile; fileRef = 1CB961CE1FA83BE400492DAB /* blur.fs */; };
 		1CB961D11FA83BE400492DAB /* blur.vs in Resources */ = {isa = PBXBuildFile; fileRef = 1CB961CF1FA83BE400492DAB /* blur.vs */; };
+		AF6493F71FB68C2300C77164 /* FBOTextures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF978C251FB5DF320002723F /* FBOTextures.cpp */; };
+		AF978C261FB5DF320002723F /* FBOTextures.cpp in Resources */ = {isa = PBXBuildFile; fileRef = AF978C251FB5DF320002723F /* FBOTextures.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +77,7 @@
 		1CB961CE1FA83BE400492DAB /* blur.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = blur.fs; sourceTree = "<group>"; };
 		1CB961CF1FA83BE400492DAB /* blur.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = blur.vs; sourceTree = "<group>"; };
 		1CB961D21FA83CD600492DAB /* PixelBuffers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PixelBuffers.cpp; sourceTree = "<group>"; };
+		AF978C251FB5DF320002723F /* FBOTextures.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FBOTextures.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +158,7 @@
 				1C0D49351FB41A14006F84E1 /* Marble.bmp */,
 				1CB961C81FA83B5100492DAB /* pix_buffs.cpp */,
 				1CB961CA1FA83B5600492DAB /* fbo_textures.cpp */,
+				AF978C251FB5DF320002723F /* FBOTextures.cpp */,
 				1CB961CC1FA83B5C00492DAB /* fbo_drawbuffers.cpp */,
 				1C0D49541FB4690D006F84E1 /* FBOBuffers.cpp */,
 				1C0D494A1FB433C4006F84E1 /* Marble.bmp */,
@@ -273,6 +275,7 @@
 				1C9578C71FB5857B008E46F1 /* FBOBuffers.vs in Resources */,
 				1C9578C91FB58C49008E46F1 /* FBOBuffers.fs in Resources */,
 				1C0D49481FB433B7006F84E1 /* LumTan.data in Resources */,
+				AF978C261FB5DF320002723F /* FBOTextures.cpp in Resources */,
 				1C0D493B1FB43321006F84E1 /* ninja.sbm in Resources */,
 				1C0D494B1FB433C4006F84E1 /* Marslike.bmp in Resources */,
 				1C0D49461FB433B7006F84E1 /* LumSin.data in Resources */,
@@ -293,8 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C0D49531FB433F6006F84E1 /* sbm.cpp in Sources */,
-				1C9578CB1FB59239008E46F1 /* FBOBuffers.cpp in Sources */,
+				AF6493F71FB68C2300C77164 /* FBOTextures.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

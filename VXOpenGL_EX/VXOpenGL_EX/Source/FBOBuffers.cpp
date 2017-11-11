@@ -180,7 +180,7 @@ void SetupRC()
     glFramebufferRenderbuffer(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_RENDERBUFFER, renderBufferNames[1]);
     glFramebufferRenderbuffer(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_RENDERBUFFER, renderBufferNames[2]);
     
-    processProg = gltLoadShaderPairWithAttributes("multibuffer.vs", "multibuffer.fs", 3,
+    processProg = gltLoadShaderPairWithAttributes("multibuffer.vs", "multibuffer_frag_location.fs", 3,
                                                   GLT_ATTRIBUTE_VERTEX, "vVertex",
                                                   GLT_ATTRIBUTE_NORMAL, "vNormal",
                                                   GLT_ATTRIBUTE_TEXTURE0, "texCoord0");

@@ -443,10 +443,11 @@ int main(int argc, char* argv[])
     fboName = 0;
     depthBufferName = 0;
     
+    glewExperimental = GL_TRUE;
 	gltSetWorkingDirectory(argv[0]);
 		
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+    glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(screenWidth,screenHeight);
   
     glutCreateWindow("FBO Textures");
